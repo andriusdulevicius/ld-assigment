@@ -3,6 +3,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { darkBlue, secondary, lightBlue } from './styles/colors';
 import GlobalProvider from './context';
 
+import Sidebar from './components/Sidebar/Sidebar';
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -23,7 +25,7 @@ function App() {
       <Router>
         <ThemeProvider theme={theme}>
           <GlobalProvider>
-            {/* Sidebar */}
+            <Sidebar />
             {/* Header */}
             {/* Dashboard */}
           </GlobalProvider>
