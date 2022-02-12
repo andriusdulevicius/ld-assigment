@@ -19,6 +19,7 @@ const Layout = () => {
         <Box px='2rem' py='1rem'>
           <Routes>
             <Route path='/' element={<Dashboard />} />
+            <Route path='/page/blog' element={<Dashboard />} />
           </Routes>
         </Box>
       </Grid>

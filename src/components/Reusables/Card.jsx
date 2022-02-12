@@ -1,8 +1,9 @@
 import React from 'react';
 import { Paper, Box, Link, Typography } from '@mui/material';
 import { ExternalLink } from '../../assets/icons/ExternalLink';
+import BottomLink from './BottomLink';
 
-const Card = ({ children, title, link, icon }) => {
+const Card = ({ children, title, blogLink, icon, bottomLinkText, bottomLinkColor, linkTo }) => {
   return (
     <Paper rounded='true' sx={{ minHeight: '13rem', width: '100%' }}>
       <Box display='flex' sx={{ p: '0.8rem' }} justifyContent='space-between'>
@@ -12,15 +13,16 @@ const Card = ({ children, title, link, icon }) => {
             {title}
           </Typography>
         </Box>
-        {link && (
+        {blogLink && (
           <Typography variant='subtitle1' component='span'>
-            <Link to={link} style={{ cursor: 'pointer' }}>
+            <Link to={blogLink} style={{ cursor: 'pointer' }}>
               Visit our blog <ExternalLink />
             </Link>
           </Typography>
         )}
       </Box>
       {children}
+      {bottomLinkText && <BottomLink linkText={bottomLinkText} linkColor={bottomLinkColor} linkTo={linkTo} />}
     </Paper>
   );
 };
