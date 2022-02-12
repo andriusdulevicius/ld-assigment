@@ -5,6 +5,7 @@ import { Button, Grid, Box } from '@mui/material';
 import ShopSelection from './ShopSelection.jsx';
 import logo from '../../assets/images/logo.png';
 import { BurgerMenu } from '../../assets/icons/BurgerMenu';
+import Menu from './Menu';
 
 const useStyles = makeStyles({
   image: {
@@ -36,7 +37,7 @@ const Sidebar = () => {
           <BurgerMenu color='primary' />
         </Button>
       </Box>
-      {/* Menu items */}
+      <Menu />
       <ShopSelection />
     </Grid>
   );
