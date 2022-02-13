@@ -13,3 +13,6 @@ export { Logout } from './Logout';
 export { Customers } from './Customers';
 export { Integrations } from './Integrations';
 export { Headphones } from './Headphones';
+export { ExternalLink } from './ExternalLink';
+export { BurgerMenu } from './BurgerMenu';
+export { Zap } from './Zap';
