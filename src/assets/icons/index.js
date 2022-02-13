@@ -10,3 +10,6 @@ export { Subscription } from './Subscription';
 export { Extensions } from './Extensions';
 export { Settings } from './Settings';
 export { Logout } from './Logout';
+export { Customers } from './Customers';
+export { Integrations } from './Integrations';
+export { Headphones } from './Headphones';

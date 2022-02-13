@@ -6,10 +6,14 @@ import WeatherCard from '../components/Dashboard/WeatherCard';
 import RandomActivity from '../components/Dashboard/RandomActivity';
 import MobileAdvert from '../components/Dashboard/MobileAdvert';
 import TrustPilotAdd from '../components/Dashboard/TrustPilotAdd';
+import InviteFriendCard from '../components/Dashboard/InviteFriendCard';
+
 import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
-import { Orders } from '../assets/icons';
+import { Orders, Customers, Headphones } from '../assets/icons';
+import { secondary } from '../styles/colors';
+import CustomerSupportCard from '../components/Dashboard/CustomerSupportCard';
 
 const Dashboard = () => {
   return (
@@ -44,8 +48,18 @@ const Dashboard = () => {
             <WeatherCard />
           </Card>
           <TrustPilotAdd />
-          <Card title='Invite friend' />
-          <Card title='Customer Support' />
+          <Card
+            title='Invite friend'
+            icon={<Customers />}
+            bottomLinkText='Start inviting friends!'
+            bottomLinkColor={secondary}
+            linkTo='/page/inviteFriend'
+          >
+            <InviteFriendCard />
+          </Card>
+          <Card title='Customer Support' icon={<Headphones />}>
+            <CustomerSupportCard />
+          </Card>
         </Grid>
       </Grid>
     </Grid>

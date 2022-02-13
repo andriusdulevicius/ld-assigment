@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Box, Button } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import fetchData from '../../utils/fetchData';
+import { darkBlue } from '../../styles/colors';
+import PrimaryButton from '../Reusables/PrimaryButton';
 
 const RandomActivity = () => {
   const [randomActivity, setRandomActivity] = useState('');
@@ -24,12 +26,10 @@ const RandomActivity = () => {
       alignItems='center'
       padding='auto 1rem'
     >
-      <Typography textAlign='center' variant='h5' component='p' color='main'>
+      <Typography textAlign='center' variant='h5' component='p' color={darkBlue}>
         {randomActivity}
       </Typography>
-      <Button size='small' variant='contained' onClick={getNewActivity}>
-        Generate new activity
-      </Button>
+      <PrimaryButton onClick={getNewActivity}>Generate new activity</PrimaryButton>
     </Box>
   );
 };

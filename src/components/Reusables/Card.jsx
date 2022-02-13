@@ -22,7 +22,11 @@ const Card = ({ children, title, blogLink, icon, bottomLinkText, bottomLinkColor
         )}
       </Box>
       {children}
-      {bottomLinkText && <BottomLink linkText={bottomLinkText} linkColor={bottomLinkColor} linkTo={linkTo} />}
+      {bottomLinkText && (
+        <Box padding='1rem'>
+          <BottomLink linkText={bottomLinkText} linkColor={bottomLinkColor} linkTo={linkTo} />
+        </Box>
+      )}
     </Paper>
   );
 };

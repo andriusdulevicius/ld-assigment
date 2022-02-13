@@ -3,13 +3,13 @@ import { Box, Typography, Paper } from '@mui/material';
 import { Image } from 'mui-image';
 import BottomLink from '../Reusables/BottomLink';
 import trustPilotLogo from '../../assets/images/logo-white-trustpilot.png';
-import { success, darkBlue } from '../../styles/colors';
+import { success, trustPilotBlue } from '../../styles/colors';
 
 const TrustPilotAdd = () => {
   return (
-    <Paper sx={{ minHeight: '13rem', width: '100%', backgroundColor: darkBlue }}>
+    <Paper sx={{ minHeight: '13rem', width: '100%', backgroundColor: trustPilotBlue }}>
       <Box display='flex' flexDirection='column' padding='0.8rem'>
-        <Box maxWidth='10rem' width='70%'>
+        <Box maxWidth='8rem' width='70%'>
           <Image src={trustPilotLogo} />
         </Box>
         <Typography variant='h6' color='#FFF' margin='1.2rem 0'>
