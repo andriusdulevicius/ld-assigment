@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Box, Typography, Link } from '@mui/material';
+import { Grid } from '@mui/material';
 import Card from '../components/Reusables/Card';
 import LatestNews from '../components/Dashboard/LatestNews';
 import WeatherCard from '../components/Dashboard/WeatherCard';
@@ -11,7 +11,7 @@ import InviteFriendCard from '../components/Dashboard/InviteFriendCard';
 import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
-import { Orders, Extensions, Customers, Headphones, ExternalLink } from '../assets/icons';
+import { Orders, Extensions, Customers, Headphones } from '../assets/icons';
 import { secondary } from '../styles/colors';
 import CustomerSupportCard from '../components/Dashboard/CustomerSupportCard';
 import OrdersCard from '../components/Dashboard/OrdersCard';

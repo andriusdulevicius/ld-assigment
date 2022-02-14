@@ -13,10 +13,10 @@ const TrustPilotAdd = () => {
           <Image src={trustPilotLogo} />
         </Box>
         <Typography variant='h6' color='#FFF' margin='1.2rem 0'>
-          Show us your love by leaving a{' '}
+          Show us your love by leaving a
           <Typography variant='h6' component='span' color={success}>
             positive
-          </Typography>{' '}
+          </Typography>
           review on trust pilot and receive the extension of 50 additional products
         </Typography>
         <BottomLink linkText='Write a review on Trustpilot' linkColor={success} linkTo='https://www.trustpilot.com/' />

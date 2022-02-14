@@ -24,10 +24,8 @@ const Sidebar = () => {
       md={menuCollapsed ? 0.5 : 3}
       sx={{ display: { xs: 'none', md: 'block' }, borderRight: '1px solid grey', minWidth: '3.5rem' }}
       height='100%'
-      px='0.5rem'
-      py='0.5rem'
     >
-      <Box display='flex' justifyContent={menuCollapsed ? 'start' : 'space-between'}>
+      <Box display='flex' justifyContent={menuCollapsed ? 'start' : 'space-between'} py='.5rem' px='.7rem'>
         {!menuCollapsed && <img src={logo} alt='Logo' className={classes.image} />}
         <Button
           onClick={() => setState({ ...state, menuCollapsed: !menuCollapsed })}
@@ -38,7 +36,7 @@ const Sidebar = () => {
         </Button>
       </Box>
       <Menu />
-      <ShopSelection />
+      {!menuCollapsed && <ShopSelection />}
     </Grid>
   );
 };

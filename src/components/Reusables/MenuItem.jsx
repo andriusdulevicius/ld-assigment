@@ -8,8 +8,17 @@ import IconExpandMore from '@mui/icons-material/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
   menuItem: {
+    padding: '.5rem',
+    '& .MuiListItemIcon-root': {
+      minWidth: 0,
+    },
+    '& .MuiListItemText-root': {
+      paddingLeft: '.5rem',
+    },
     '&.active': {
       background: 'rgba(0, 0, 0, 0.06)',
+      borderLeft: `3px solid ${theme.palette.secondary.main}`,
+
       '& .MuiListItemIcon-root': {
         color: theme.palette.secondary.main,
       },
@@ -21,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
   menuItemIcon: {
     color: theme.palette.primary.main,
   },
+  collapsableMenu: {
+    paddingLeft: '1rem',
+    backgroundColor: theme.palette.menu.main,
+  },
 }));
 
 const MenuItem = ({ label, link, Icon, children = [] }) => {
@@ -31,7 +44,7 @@ const MenuItem = ({ label, link, Icon, children = [] }) => {
   const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
-    setExpanded(false);
+    menuCollapsed && setExpanded(false);
   }, [menuCollapsed]);
 
   const handleClick = () => {
@@ -57,7 +70,7 @@ const MenuItem = ({ label, link, Icon, children = [] }) => {
   const MenuItemChildren = isExpandable ? (
     <Collapse in={expanded} timeout='auto' unmountOnExit>
       <Divider />
-      <List component='div' disablePadding>
+      <List component='div' disablePadding className={classes.collapsableMenu}>
         {children.map((item, index) => (
           <MenuItem key={index} {...item} />
         ))}

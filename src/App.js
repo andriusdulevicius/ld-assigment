@@ -12,7 +12,7 @@ const theme = createTheme({
     secondary: {
       main: secondary,
     },
-    main: {
+    menu: {
       main: lightBlue,
     },
   },
