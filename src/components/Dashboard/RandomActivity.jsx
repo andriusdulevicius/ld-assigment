@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Typography, Box } from '@mui/material';
 import fetchData from '../../utils/fetchData';
-import { darkBlue } from '../../styles/colors';
 import PrimaryButton from '../Reusables/PrimaryButton';
 
 const RandomActivity = () => {

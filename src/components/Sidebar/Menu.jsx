@@ -46,7 +46,7 @@ const menuItems = [
   { label: 'Logout', Icon: Logout, link: '/page/logout' },
 ];
 
-const Menu = ({ collapsed }) => {
+const Menu = () => {
   return (
     <List component='nav' disablePadding>
       {menuItems.map((item, index) => (

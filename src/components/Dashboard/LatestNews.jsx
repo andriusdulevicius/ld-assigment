@@ -29,7 +29,9 @@ const LatestNews = () => {
                     <CardMedia className={classes.image} component='img' image={image} alt={title} />
                     <CardContent>
                       <Typography variant='caption'>{title.split(' ').slice(0, 6).join(' ')} </Typography>
-                      <Link to={url}>Read more...</Link>
+                      <Link href={url} target='_blank'>
+                        Read more...
+                      </Link>
                     </CardContent>
                   </Box>
                 </CardActionArea>
