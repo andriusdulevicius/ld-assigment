@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Grid, Box, Typography, Link } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { useGlobalState } from '../context';
 import { BurgerMenu, ExternalLink, Zap } from '../assets/icons';
 import { danger } from '../styles/colors';
+import Sidebar from './Sidebar/Sidebar';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -25,25 +26,38 @@ const useStyles = makeStyles((theme) => ({
     margin: '0',
     color: '#FFF',
   },
+  sidebar: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    height: 'auto',
+    minHeight: '100vh',
+    backgroundColor: '#fff',
+    zIndex: '99',
+  },
 }));
 
 const Header = ({ page }) => {
   const classes = useStyles();
+  const [menuVisible, setMenuVisible] = useState(false);
   const [state, setState] = useGlobalState();
-  const { menuCollapsed } = state;
 
-  const handleBurgerClick = () => {};
+  const toggleMenu = (open) => {
+    setState({ ...state, menuCollapsed: false });
+    setMenuVisible(!!open);
+  };
 
   return (
     <>
       <Grid container justifyContent='space-between' height='3rem' px='1rem' className={classes.container}>
+        {menuVisible && (
+          <Box sx={{ display: { sm: 'block', md: 'none' } }} className={classes.sidebar}>
+            <Sidebar mobile={true} customAction={toggleMenu} />
+          </Box>
+        )}
         <Grid item sx={{ display: { xs: 'block', md: 'none' } }}>
-          <Button
-            onClick={() => setState({ ...state, menuCollapsed: !menuCollapsed })}
-            color='secondary'
-            sx={{ minWidth: 0 }}
-          >
-            <BurgerMenu color='primary' onClick={handleBurgerClick} />
+          <Button onClick={() => toggleMenu(true)} color='secondary' sx={{ minWidth: 0 }}>
+            <BurgerMenu color='primary' />
           </Button>
         </Grid>
         <Grid item className={classes.pageName}>
@@ -64,7 +78,9 @@ const Header = ({ page }) => {
               color='#FFF'
               fontSize='0.8rem'
               textAlign='center'
-            ></Box>
+            >
+              2
+            </Box>
           </Box>
         </Grid>
       </Grid>
