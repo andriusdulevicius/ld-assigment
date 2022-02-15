@@ -1,4 +1,5 @@
 import React from 'react';
+import { makeStyles } from '@mui/styles';
 import { Grid } from '@mui/material';
 import Card from '../components/Reusables/Card';
 import LatestNews from '../components/Dashboard/LatestNews';
@@ -18,17 +19,19 @@ import OrdersCard from '../components/Dashboard/OrdersCard';
 import ExtensionsCard from '../components/Dashboard/ExtensionsCard';
 
 const Dashboard = () => {
+  const classes = useStyles();
+
   return (
     <>
-      <Grid container justifyContent={'space-between'} spacing={2} margin='-4rem auto 3rem'>
-        <Grid item xs={12} sm={8}>
+      <Grid container className={classes.wrapper} spacing={2}>
+        <Grid item xs={12} lg={8}>
           <Grid container spacing={2}>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
               <Card title='Challenge of the day' icon={<AccessibilityNewIcon />}>
                 <RandomActivity />
               </Card>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
               <Card
                 title='Orders'
                 icon={<Orders />}
@@ -39,10 +42,10 @@ const Dashboard = () => {
                 <OrdersCard />
               </Card>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
               <MobileAdvert />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
               <Card
                 title='Extensions Marketplace'
                 icon={<Extensions />}
@@ -61,7 +64,7 @@ const Dashboard = () => {
           </Grid>
         </Grid>
         {/* Side Content */}
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} lg={4}>
           <Grid container gap={2}>
             <Card title='Weather today' icon={<WbSunnyOutlinedIcon />}>
               <WeatherCard />
@@ -87,3 +90,10 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+const useStyles = makeStyles({
+  wrapper: {
+    justifyContent: 'space-between',
+    margin: '-4rem auto 3rem',
+  },
+});

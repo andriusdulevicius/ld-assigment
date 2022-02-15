@@ -1,23 +1,15 @@
 import React from 'react';
+import { makeStyles } from '@mui/styles';
 import { Box, Typography } from '@mui/material/';
-import { orange, success } from '../../styles/colors';
 import LanguageIcon from '@mui/icons-material/Language';
 
 const ExtensionsCard = () => {
+  const classes = useStyles();
+
   return (
-    <Box display='flex' flexWrap='nowrap' overflow='hidden' gap='2rem'>
-      <Box width='10rem' padding='1rem'>
-        <Box
-          display='flex'
-          justifyContent='center'
-          alignItems='center'
-          backgroundColor={orange}
-          color='#FFF'
-          width='9rem'
-          height='9rem'
-          fontSize='3rem'
-          borderRadius='0.5rem'
-        >
+    <Box className={classes.wrapper}>
+      <Box className={classes.extensionWrapper}>
+        <Box className={`${classes.extension} ${classes.orange}`}>
           <LanguageIcon fontSize='inherit' />
         </Box>
         <Box>
@@ -26,22 +18,9 @@ const ExtensionsCard = () => {
           </Typography>
         </Box>
       </Box>
-      <Box width='10rem' padding='1rem'>
-        <Box
-          display='flex'
-          flexDirection='column'
-          justifyContent='center'
-          alignItems='center'
-          backgroundColor={success}
-          color='#FFF'
-          width='9rem'
-          height='9rem'
-          fontSize='3rem'
-          borderRadius='0.5rem'
-        >
-          <Typography fontSize='1.5rem' fontWeight={600} textAlign='center'>
-            +50
-          </Typography>
+      <Box className={classes.extensionWrapper}>
+        <Box className={`${classes.extension} ${classes.success}`}>
+          <Typography className={classes.text}>+50</Typography>
           <Typography component='span' textAlign='center'>
             prodotti
           </Typography>
@@ -57,3 +36,38 @@ const ExtensionsCard = () => {
 };
 
 export default ExtensionsCard;
+
+const useStyles = makeStyles((theme) => ({
+  wrapper: {
+    display: 'flex',
+    overflow: 'hidden',
+    flexWrap: 'nowrap',
+    gap: '.2rem',
+  },
+  extensionWrapper: {
+    width: '10rem',
+    padding: '1rem',
+  },
+  extension: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: theme.palette.white.main,
+    width: '9rem',
+    height: '9rem',
+    fontSize: '3rem',
+    borderRadius: '.5rem',
+  },
+  orange: {
+    backgroundColor: theme.palette.orange.main,
+  },
+  success: {
+    backgroundColor: theme.palette.success.main,
+  },
+  text: {
+    fontSize: '1.5rem',
+    textAlign: 'center',
+    fontWeight: 600,
+  },
+}));

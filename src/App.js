@@ -1,6 +1,6 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { darkBlue, secondary, lightBlue } from './styles/colors';
+import { darkBlue, secondary, lightBlue, orange, success, darkGray, trustPilotBlue } from './styles/colors';
 import GlobalProvider from './context';
 import Layout from './components/Layout';
 
@@ -15,6 +15,11 @@ const theme = createTheme({
     menu: {
       main: lightBlue,
     },
+    white: { main: '#fff' },
+    orange: { main: orange },
+    success: { main: success },
+    darkGray: { main: darkGray },
+    trustPilotBlue: { main: trustPilotBlue },
   },
 });
 

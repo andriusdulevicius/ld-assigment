@@ -1,10 +1,13 @@
 import React from 'react';
+import { makeStyles } from '@mui/styles';
 import { Box, Select, MenuItem, FormControl } from '@mui/material';
 
 const PeriodSelector = ({ period, setPeriod }) => {
+  const classes = useStyles();
+
   return (
-    <Box position='absolute' top='-3.1rem' right='1rem'>
-      <FormControl variant='standard' sx={{ m: 1, minWidth: 120 }}>
+    <Box className={classes.wrapper}>
+      <FormControl className={classes.formControl} variant='standard'>
         <Select id='period-select' variant='standard' value={period} onChange={(e) => setPeriod(e.target.value)}>
           <MenuItem value='thisWeek'>This week</MenuItem>
           <MenuItem value='thisMonth'>This month</MenuItem>
@@ -16,3 +19,15 @@ const PeriodSelector = ({ period, setPeriod }) => {
 };
 
 export default PeriodSelector;
+
+const useStyles = makeStyles({
+  wrapper: {
+    position: 'absolute',
+    right: '0',
+    top: '-3.8rem',
+  },
+  formControl: {
+    margin: '1rem',
+    minWidth: '120px',
+  },
+});

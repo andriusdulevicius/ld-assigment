@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { makeStyles } from '@mui/styles';
 import { Card, Link, Grid, Box, CardContent, CardMedia, Typography, CardActionArea } from '@mui/material';
 import fetchData from '../../utils/fetchData';
 
-export default function LatestNews() {
+const LatestNews = () => {
+  const classes = useStyles();
   const articlesApi = `https://gnews.io/api/v4/top-headlines?&token=${process.env.REACT_APP_GNEWS_TOKEN}&lang=en&max=8`;
 
   const [articles, setArticles] = useState([]);
@@ -15,16 +17,16 @@ export default function LatestNews() {
   }, [articlesApi]);
 
   return (
-    <Grid container columns={2} columnGap={1}>
+    <Grid container>
       {articles &&
         articles.map((article, index) => {
           const { title, image, url } = article;
           return (
-            <Grid item sx={{ marginBottom: '1rem', padding: '0.5rem', width: '48%', maxHeight: '100px' }} key={index}>
+            <Grid item key={index} className={classes.wrapper} md={6} xs={12}>
               <Card>
                 <CardActionArea>
-                  <Box display='flex' alignItems='center'>
-                    <CardMedia sx={{ width: '100px' }} component='img' height='90px' image={image} alt={title} />
+                  <Box className={classes.news}>
+                    <CardMedia className={classes.image} component='img' image={image} alt={title} />
                     <CardContent>
                       <Typography variant='caption'>{title.split(' ').slice(0, 6).join(' ')} </Typography>
                       <Link to={url}>Read more...</Link>
@@ -37,4 +39,22 @@ export default function LatestNews() {
         })}
     </Grid>
   );
-}
+};
+
+export default LatestNews;
+
+const useStyles = makeStyles({
+  wrapper: {
+    marginBottom: '1rem',
+    padding: '0.5rem',
+    maxHeight: '100px',
+  },
+  news: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  image: {
+    width: '100px',
+    height: '90px',
+  },
+});
