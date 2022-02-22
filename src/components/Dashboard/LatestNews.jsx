@@ -2,19 +2,22 @@ import { useState, useEffect } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Card, Link, Grid, Box, CardContent, CardMedia, Typography, CardActionArea } from '@mui/material';
 import fetchData from '../../utils/fetchData';
+import endpoints from '../../utils/apiEndpoints';
+import { withHeader } from './../Hoc/withHeader';
+import { Navigate } from 'react-router-dom';
 
 const LatestNews = () => {
   const classes = useStyles();
-  const articlesApi = `https://gnews.io/api/v4/top-headlines?&token=${process.env.REACT_APP_GNEWS_TOKEN}&lang=en&max=8`;
+  const { getNews } = endpoints;
 
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     (async () => {
-      const data = await fetchData(articlesApi);
-      setArticles(data.articles);
+      const data = await fetchData(getNews);
+      setArticles(data.articles || []);
     })();
-  }, [articlesApi]);
+  }, []);
 
   return (
     <Grid container>
@@ -23,7 +26,7 @@ const LatestNews = () => {
           const { title, image, url } = article;
           return (
             <Grid item key={index} className={classes.wrapper} md={6} xs={12}>
-              <Card>
+              <Card sx={{ boxShadow: 'none' }}>
                 <CardActionArea>
                   <Box className={classes.news}>
                     <CardMedia className={classes.image} component='img' image={image} alt={title} />
@@ -43,9 +46,9 @@ const LatestNews = () => {
   );
 };
 
-export default LatestNews;
+export default withHeader(LatestNews);
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   wrapper: {
     marginBottom: '1rem',
     padding: '0.5rem',
@@ -59,4 +62,4 @@ const useStyles = makeStyles({
     width: '100px',
     height: '90px',
   },
-});
+}));

@@ -2,21 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Typography, Box } from '@mui/material';
 import fetchData from '../../utils/fetchData';
+import endpoints from '../../utils/apiEndpoints';
 import PrimaryButton from '../Reusables/PrimaryButton';
+import { withHeader } from '../Hoc';
 
 const RandomActivity = () => {
   const classes = useStyles();
   const [randomActivity, setRandomActivity] = useState('');
-  const randomActivityApi = 'https://www.boredapi.com/api/activity';
+  const { getRandomActivity } = endpoints;
+
+  const getNewActivity = async () => {
+    const data = await fetchData(getRandomActivity);
+    setRandomActivity(data.activity);
+  };
 
   useEffect(() => {
     getNewActivity();
   }, []);
-
-  const getNewActivity = async () => {
-    const data = await fetchData(randomActivityApi);
-    setRandomActivity(data.activity);
-  };
 
   return (
     <Box className={classes.wrapper}>
@@ -28,7 +30,7 @@ const RandomActivity = () => {
   );
 };
 
-export default RandomActivity;
+export default withHeader(RandomActivity);
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -37,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     gap: '1rem',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 'auto 1rem',
+    padding: '1.4rem 0',
   },
   text: {
     textAlign: 'center',

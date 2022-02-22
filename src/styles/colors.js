@@ -6,4 +6,5 @@ export const lightGray = '#F7F7F7';
 export const darkGray = '#6C7C8C';
 export const darkBlue = '#103B66';
 export const orange = '#FFA26B';
+export const white = '#FFF';
 export const trustPilotBlue = '#000032';

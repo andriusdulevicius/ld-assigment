@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
-import { Paper, Box, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import Image from 'mui-image';
 import BottomLink from '../Reusables/BottomLink';
 import appStore from '../../assets/images/appStore.png';
@@ -11,7 +11,7 @@ const MobileAdvert = () => {
   const classes = useStyles();
 
   return (
-    <Paper className={classes.wrapper}>
+    <>
       <Box className={classes.main}>
         <Box className={classes.text}>
           <Typography variant='h6'>Sell your products on your exclusive APP published on the stores</Typography>
@@ -29,17 +29,13 @@ const MobileAdvert = () => {
           <Image src={googlePlay} alt='googlePlay' />
         </Box>
       </Box>
-    </Paper>
+    </>
   );
 };
 
 export default MobileAdvert;
 
 const useStyles = makeStyles((theme) => ({
-  wrapper: {
-    padding: '1rem',
-    backgroundColor: theme.palette.orange.main,
-  },
   main: {
     display: 'flex',
     justifyContent: 'space-between',

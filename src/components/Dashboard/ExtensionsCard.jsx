@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@mui/styles';
 import { Box, Typography } from '@mui/material/';
 import LanguageIcon from '@mui/icons-material/Language';
+import { withHeader, withFooter } from '../Hoc';
 
 const ExtensionsCard = () => {
   const classes = useStyles();
@@ -35,7 +36,7 @@ const ExtensionsCard = () => {
   );
 };
 
-export default ExtensionsCard;
+export default withFooter(withHeader(ExtensionsCard));
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Box, Typography } from '@mui/material';
 import PeriodSelector from '../Reusables/PeriodSelector';
+import { withHeader, withFooter } from '../Hoc';
 
 const OrdersCard = () => {
   const classes = useStyles();
@@ -50,7 +51,7 @@ const OrdersCard = () => {
   );
 };
 
-export default OrdersCard;
+export default withFooter(withHeader(OrdersCard));
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {

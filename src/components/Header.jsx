@@ -3,20 +3,23 @@ import { Button, Grid, Box, Typography, Link } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { useGlobalState } from '../context';
 import { BurgerMenu, ExternalLink, Zap } from '../assets/icons';
-import { danger } from '../styles/colors';
 import Sidebar from './Sidebar/Sidebar';
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    height: '50px',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: '1rem',
+    height: '4rem',
     borderBottom: '1px solid grey',
   },
   pageName: {
     textTransform: 'capitalize',
+    fontWeight: 600,
+    color: theme.palette.primary.dark,
   },
   hero: {
-    background: `linear-gradient(0deg, #fff 0%, ${theme.palette.secondary.main} 100%)`,
+    background: `linear-gradient(0deg, ${theme.palette.white.main} 0%, ${theme.palette.secondary.main} 100%)`,
     width: '100%',
     height: '10rem',
     display: 'flex',
@@ -24,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     padding: '2.5rem 1rem 3rem 1rem',
     margin: '0',
-    color: '#FFF',
+    color: theme.palette.white.main,
   },
   sidebar: {
     position: 'absolute',
@@ -32,8 +35,20 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     height: 'auto',
     minHeight: '100vh',
-    backgroundColor: '#fff',
+    backgroundColor: theme.palette.white.main,
     zIndex: '99',
+  },
+  notification: {
+    position: 'absolute',
+    top: '-0.5rem',
+    right: '-0.5rem',
+    width: '1.2rem',
+    height: '1.2rem',
+    borderRadius: '50%',
+    backgroundColor: theme.palette.danger.main,
+    color: theme.palette.white.main,
+    fontSize: '0.8rem',
+    textAlign: 'center',
   },
 }));
 
@@ -49,7 +64,7 @@ const Header = ({ page }) => {
 
   return (
     <>
-      <Grid container justifyContent='space-between' height='3rem' px='1rem' className={classes.container}>
+      <Grid container className={classes.container}>
         {menuVisible && (
           <Box sx={{ display: { sm: 'block', md: 'none' } }} className={classes.sidebar}>
             <Sidebar mobile={true} customAction={toggleMenu} />
@@ -67,20 +82,7 @@ const Header = ({ page }) => {
           <Box display='flex' alignItems='center' position='relative'>
             <Zap />
             <Typography>Whats new</Typography>
-            <Box
-              position='absolute'
-              top='-0.5rem'
-              right='-0.5rem'
-              width='1.2rem'
-              height='1.2rem'
-              borderRadius='50%'
-              backgroundColor={danger}
-              color='#FFF'
-              fontSize='0.8rem'
-              textAlign='center'
-            >
-              2
-            </Box>
+            <Box className={classes.notification}>2</Box>
           </Box>
         </Grid>
       </Grid>

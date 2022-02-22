@@ -6,11 +6,32 @@ import andriusPhoto from '../../assets/images/img.jpg';
 import simonePhoto from '../../assets/images/simone.jpg';
 import PrimaryButton from '../Reusables/PrimaryButton';
 import { Navigate } from 'react-router-dom';
+import { withHeader } from '../Hoc';
 
 const specialists = [
   { name: 'Andrius', photo: andriusPhoto },
   { name: 'Simone', photo: simonePhoto },
 ];
+
+const CustomerSupportCard = () => {
+  const classes = useStyles();
+
+  return (
+    <Box className={classes.wrapper}>
+      {specialists.map((spec) => (
+        <Box key={spec.name} className={classes.specialist}>
+          <Box className={classes.image}>
+            <Image src={spec.photo} />
+          </Box>
+          <Typography> {spec.name} is here to help you</Typography>
+        </Box>
+      ))}
+      <PrimaryButton onClick={() => Navigate('/page/contacts')}>Contact us</PrimaryButton>
+    </Box>
+  );
+};
+
+export default withHeader(CustomerSupportCard);
 
 const useStyles = makeStyles({
   wrapper: {
@@ -31,23 +52,3 @@ const useStyles = makeStyles({
     height: '4rem',
   },
 });
-
-const CustomerSupportCard = () => {
-  const classes = useStyles();
-
-  return (
-    <Box className={classes.wrapper}>
-      {specialists.map((spec) => (
-        <Box key={spec.name} className={classes.specialist}>
-          <Box className={classes.image}>
-            <Image src={spec.photo} />
-          </Box>
-          <Typography> {spec.name} is here to help you</Typography>
-        </Box>
-      ))}
-      <PrimaryButton onClick={() => Navigate('/page/contacts')}>Contact us</PrimaryButton>
-    </Box>
-  );
-};
-
-export default CustomerSupportCard;

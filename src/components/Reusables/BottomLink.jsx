@@ -24,5 +24,6 @@ const useStyles = makeStyles({
     alignItems: 'center',
     flexWrap: 'nowrap',
     gap: '.3rem',
+    cursor: 'pointer',
   },
 });

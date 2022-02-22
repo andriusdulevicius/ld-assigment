@@ -1,16 +1,15 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
-import { Box, Typography, Paper } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { Image } from 'mui-image';
-import BottomLink from '../Reusables/BottomLink';
 import trustPilotLogo from '../../assets/images/logo-white-trustpilot.png';
-import { success } from '../../styles/colors';
+import { withFooter } from '../Hoc';
 
 const TrustPilotAdd = () => {
   const classes = useStyles();
 
   return (
-    <Paper className={classes.wrapper}>
+    <>
       <Box className={classes.content}>
         <Box className={classes.image}>
           <Image src={trustPilotLogo} />
@@ -22,20 +21,14 @@ const TrustPilotAdd = () => {
           </Typography>
           review on trust pilot and receive the extension of 50 additional products
         </Typography>
-        <BottomLink linkText='Write a review on Trustpilot' linkColor={success} linkTo='https://www.trustpilot.com/' />
       </Box>
-    </Paper>
+    </>
   );
 };
 
-export default TrustPilotAdd;
+export default withFooter(TrustPilotAdd);
 
 const useStyles = makeStyles((theme) => ({
-  wrapper: {
-    minHeight: '13rem',
-    width: '100%',
-    backgroundColor: theme.palette.trustPilotBlue.main,
-  },
   content: {
     display: 'flex',
     flexDirection: 'column',

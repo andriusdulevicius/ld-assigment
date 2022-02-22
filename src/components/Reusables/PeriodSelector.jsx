@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   wrapper: {
     position: 'absolute',
     right: '0',
-    top: '-3.8rem',
+    top: '-3.7rem',
   },
   formControl: {
     margin: '1rem',

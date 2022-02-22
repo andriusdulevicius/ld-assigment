@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@mui/styles';
 import { Box, Typography } from '@mui/material';
 import { success } from '../../styles/colors';
+import { withHeader, withFooter } from '../Hoc';
 
 const InviteFriendCard = () => {
   const classes = useStyles();
@@ -19,7 +20,7 @@ const InviteFriendCard = () => {
   );
 };
 
-export default InviteFriendCard;
+export default withHeader(withFooter(InviteFriendCard));
 
 const useStyles = makeStyles({
   wrapper: {

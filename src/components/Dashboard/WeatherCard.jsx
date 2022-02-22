@@ -4,32 +4,29 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import fetchData from '../../utils/fetchData';
+import endpoints from '../../utils/apiEndpoints';
+import { withHeader } from '../Hoc';
 
 const WeatherCard = () => {
   const classes = useStyles();
-  const [weatherObj, setWeatherObj] = useState('');
+  const [weatherData, setWeatherData] = useState({});
   const [cityName, setCityName] = useState('London');
+  const { main, weather, message } = weatherData;
+  const { getWeather } = endpoints;
 
   useEffect(() => {
-    fetchWeather(cityName);
+    fetchData(getWeather(cityName)).then((data) => setWeatherData(data || {}));
   }, [cityName]);
 
-  const fetchWeather = async (city) => {
-    const weatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`;
-    const data = await fetchData(weatherApi);
-    setWeatherObj(data);
-  };
-
-  const fetchNewData = (e) => {
+  const setCity = (e) => {
     e.preventDefault();
-    setCityName(e.target.cityName.value);
-    fetchWeather(cityName);
+    setCityName(e.target.cityName?.value || e.target.value);
   };
 
   return (
-    <>
-      <Box className={classes.alignment}>
-        <form onSubmit={fetchNewData}>
+    <Box className={classes.wrapper}>
+      <Box className={classes.inputField}>
+        <form onSubmit={setCity} onBlur={setCity}>
           <TextField
             id='filled-search'
             label='Enter city name'
@@ -40,34 +37,46 @@ const WeatherCard = () => {
           />
         </form>
       </Box>
-      <Box>
+      <Box className={classes.results}>
         <Typography variant='h5' className={classes.alignment}>
           {cityName} forecast
         </Typography>
-        {weatherObj.main ? (
+        {main ? (
           <Box className={classes.alignment}>
-            <Typography>Current temp: {Math.round(weatherObj.main.temp)}C</Typography>
+            <Typography>Current temp: {Math.round(main.temp)}C</Typography>
 
-            <Typography>Feels like: {Math.round(weatherObj.main.feels_like)}C</Typography>
-            <img src={`http://openweathermap.org/img/wn/${weatherObj.weather[0].icon}@2x.png`} alt='weather icon' />
-            <Typography>{weatherObj.weather[0].description}</Typography>
+            <Typography>Feels like: {Math.round(main.feels_like)}C</Typography>
+            <img src={`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`} alt='weather icon' />
+            <Typography>{weather[0].description}</Typography>
           </Box>
         ) : (
           <Typography className={classes.alignment}>Please enter a valid city name to see the forecast</Typography>
         )}
-        {weatherObj.message && (
+        {message && (
           <Typography variant='subtitle2' className={classes.alignment}>
-            {weatherObj.message}
+            {message}
           </Typography>
         )}
       </Box>
-    </>
+    </Box>
   );
 };
 
-export default WeatherCard;
+export default withHeader(WeatherCard);
 
 const useStyles = makeStyles({
+  wrapper: {
+    position: 'relative',
+  },
+  inputField: {
+    position: 'absolute',
+    top: '-2.8rem',
+    right: '0.625rem',
+    maxWidth: '10rem',
+  },
+  results: {
+    padding: '2rem 0',
+  },
   alignment: {
     textAlign: 'center',
   },
