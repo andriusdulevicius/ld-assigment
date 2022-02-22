@@ -3,13 +3,13 @@ import { makeStyles } from '@mui/styles';
 import { ArrowRight } from '../../assets/icons/ArrowRight';
 import { Typography, Link, Box } from '@mui/material';
 
-const BottomLink = ({ linkColor, linkText, linkTo }) => {
+const BottomLink = ({ text, ...rest }) => {
   const classes = useStyles();
 
   return (
-    <Link color={linkColor} href={linkTo} target='_blank'>
+    <Link {...rest}>
       <Box className={classes.wrapper}>
-        <Typography>{linkText}</Typography>
+        <Typography>{text}</Typography>
         <ArrowRight />
       </Box>
     </Link>

@@ -24,9 +24,12 @@ export const mainCards = [
     Component: OrdersCard,
     title: 'Orders',
     Icon: Orders,
-    footerText: '10 free tips to increase your sales!',
-    footerColor: 'secondary',
-    footerLink: 'https://keap.com/business-success-blog/sales/sales-process/how-to-increase-sales',
+    footerLink: {
+      text: '10 free tips to increase your sales!',
+      color: 'secondary',
+      href: 'https://keap.com/business-success-blog/sales/sales-process/how-to-increase-sales',
+      target: '_blank',
+    },
     grid: { md: 6 },
   },
   {
@@ -38,9 +41,11 @@ export const mainCards = [
     Component: ExtensionsCard,
     title: 'Extension Marketplace',
     Icon: Extensions,
-    footerText: 'Discover all extensions',
-    footerColor: 'secondary',
-    footerLink: '/page/extensions',
+    footerLink: {
+      text: 'Discover all extensions',
+      color: 'secondary',
+      href: '/page/extensions',
+    },
     grid: { md: 6 },
   },
   {
@@ -60,17 +65,22 @@ export const sideCards = [
   {
     Component: TrustPilotAdd,
     backgroundColor: trustPilotBlue,
-    footerText: 'Write a review on Tristpilot',
-    footerColor: success,
-    footerLink: 'https://www.trustpilot.com',
+    footerLink: {
+      text: 'Write a review on Tristpilot',
+      color: success,
+      href: 'https://www.trustpilot.com',
+      target: '_blank',
+    },
   },
   {
     Component: InviteFriendCard,
     title: 'Invite Friend',
     Icon: Customers,
-    footerText: 'Start inviting friends!',
-    footerColor: 'secondary',
-    footerLink: '/page/inviteFriend',
+    footerLink: {
+      text: 'Start inviting friends!',
+      color: 'secondary',
+      href: '/page/inviteFriend',
+    },
   },
   {
     Component: CustomerSupportCard,

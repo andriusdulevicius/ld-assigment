@@ -9,12 +9,12 @@ const Dashboard = () => {
   const classes = useStyles();
 
   return (
-    <Grid container className={classes.wrapper} spacing={2}>
+    <Grid container className={classes.wrapper} spacing={3}>
       <Grid item xs={12} lg={8} className={classes.mainSection}>
-        <Grid container spacing={2} className={classes.mainSection}>
+        <Grid container className={classes.mainSection} spacing={3}>
           {mainCards.map(({ Component, grid, backgroundColor, ...rest }, index) => {
             return (
-              <Grid item xs={12} {...grid} key={index} className={classes.mainSectionCard}>
+              <Grid item xs={12} {...grid} key={index}>
                 <Card backgroundColor={backgroundColor || white}>
                   <Component {...rest} />
                 </Card>
@@ -25,12 +25,14 @@ const Dashboard = () => {
       </Grid>
       {/* Side Content */}
       <Grid item xs={12} lg={4}>
-        <Grid container gap={2}>
+        <Grid container gap={3}>
           {sideCards.map(({ Component, backgroundColor, ...rest }, index) => {
             return (
-              <Card key={index} backgroundColor={backgroundColor || white}>
-                <Component {...rest} />
-              </Card>
+              <Grid item xs={12} key={index}>
+                <Card backgroundColor={backgroundColor || white}>
+                  <Component {...rest} />
+                </Card>
+              </Grid>
             );
           })}
         </Grid>
@@ -43,16 +45,10 @@ export default Dashboard;
 
 const useStyles = makeStyles({
   wrapper: {
-    justifyContent: 'space-between',
-    margin: '-5rem auto 3rem',
+    margin: '-4rem -0.75rem 3rem',
     width: '100%',
-    padding: '0',
   },
   mainSection: {
     padding: '0',
-    width: '100%',
-  },
-  mainSectionCard: {
-    padding: '0.625rem',
   },
 });

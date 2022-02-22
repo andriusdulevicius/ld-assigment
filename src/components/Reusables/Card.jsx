@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
   wrapper: {
     padding: '0.625rem',
     minHeight: '13rem',
+    height: '100%',
     width: '100%',
     borderRadius: '0.625rem',
     boxShadow: '0 4px 8px 0 rgba(50, 50, 71, 0.08)',

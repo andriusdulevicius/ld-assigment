@@ -5,15 +5,16 @@ import { Box } from '@mui/material';
 
 export const withFooter = (Component) => {
   const NewComponent = (props) => {
-    const { footerText, footerColor, footerLink } = props;
+    const { footerLink } = props;
+    console.log('footerLink', { ...footerLink });
     const classes = useStyles();
 
     return (
       <>
         <Component {...props} />
-        {footerText && (
+        {footerLink?.text && (
           <Box className={classes.bottomLink}>
-            <BottomLink linkText={footerText} linkColor={footerColor} linkTo={footerLink} />
+            <BottomLink {...footerLink} />
           </Box>
         )}
       </>

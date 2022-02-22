@@ -4,10 +4,7 @@ import Header from './Header';
 import { Grid, Box } from '@mui/material';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Dashboard from '../pages/Dashboard';
-import LatestNews from './Dashboard/LatestNews';
 import Example from './../pages/Example';
-import OrdersCard from './Dashboard/OrdersCard';
-import ExtensionsCard from './Dashboard/ExtensionsCard';
 
 const Layout = () => {
   const location = useLocation();
@@ -23,9 +20,9 @@ const Layout = () => {
         <Box px='2rem' py='1rem'>
           <Routes>
             <Route path='/' element={<Dashboard />} />
-            <Route path='/page/blog' element={<LatestNews />} />
+            <Route path='/page/blog' element={<Example />} />
             <Route path='/page/catalog' element={<Example />} />
-            <Route path='/page/orders' element={<OrdersCard />} />
+            <Route path='/page/orders' element={<Example />} />
             <Route path='/page/customer' element={<Example />} />
             <Route path='/page/discount' element={<Example />} />
             <Route path='/page/exit' element={<Example />} />
@@ -35,7 +32,7 @@ const Layout = () => {
             <Route path='/page/payment' element={<Example />} />
             <Route path='/page/design' element={<Example />} />
             <Route path='/page/subscription' element={<Example />} />
-            <Route path='/page/extensions' element={<ExtensionsCard />} />
+            <Route path='/page/extensions' element={<Example />} />
             <Route path='/page/setting' element={<Example />} />
             <Route path='/page/logout' element={<Example />} />
             <Route path='/page/inviteFriend' element={<Example />} />
