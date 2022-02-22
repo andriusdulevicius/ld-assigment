@@ -4,7 +4,6 @@ import { Card, Link, Grid, Box, CardContent, CardMedia, Typography, CardActionAr
 import fetchData from '../../utils/fetchData';
 import endpoints from '../../utils/apiEndpoints';
 import { withHeader } from './../Hoc/withHeader';
-import { Navigate } from 'react-router-dom';
 
 const LatestNews = () => {
   const classes = useStyles();

@@ -26,7 +26,9 @@ const CustomerSupportCard = () => {
           <Typography> {spec.name} is here to help you</Typography>
         </Box>
       ))}
-      <PrimaryButton onClick={() => Navigate('/page/contacts')}>Contact us</PrimaryButton>
+      <Box className={classes.btn}>
+        <PrimaryButton onClick={() => Navigate('/page/contacts')}>Contact us</PrimaryButton>
+      </Box>
     </Box>
   );
 };
@@ -50,5 +52,8 @@ const useStyles = makeStyles({
     overflow: 'hidden',
     width: '4rem',
     height: '4rem',
+  },
+  btn: {
+    maxWidth: '7rem',
   },
 });

@@ -5,6 +5,61 @@ import { useGlobalState } from '../context';
 import { BurgerMenu, ExternalLink, Zap } from '../assets/icons';
 import Sidebar from './Sidebar/Sidebar';
 
+const Header = ({ page }) => {
+  const classes = useStyles();
+  const [menuVisible, setMenuVisible] = useState(false);
+  const [state, setState] = useGlobalState();
+
+  const toggleMenu = (open) => {
+    setState({ ...state, menuCollapsed: false });
+    setMenuVisible(!!open);
+  };
+
+  return (
+    <>
+      <Grid container className={classes.container}>
+        {menuVisible && (
+          <Box sx={{ display: { sm: 'block', md: 'none' } }} className={classes.sidebar}>
+            <Sidebar mobile={true} customAction={toggleMenu} />
+          </Box>
+        )}
+        <Grid item sx={{ display: { xs: 'block', md: 'none' } }}>
+          <Button onClick={() => toggleMenu(true)} color='secondary' sx={{ minWidth: 0 }}>
+            <BurgerMenu color='primary' />
+          </Button>
+        </Grid>
+        <Grid item className={classes.pageName}>
+          {page}
+        </Grid>
+        <Grid item>
+          <Box className={classes.whatsNewBox}>
+            <Zap />
+            <Typography>Whats new</Typography>
+            <Box className={classes.notification}>2</Box>
+          </Box>
+        </Grid>
+      </Grid>
+      <Box className={classes.hero}>
+        <Typography variant='h4' component='div'>
+          Welcome, Andrius!
+        </Typography>
+        <Link
+          className={classes.heroLink}
+          to='app.vetrinalive.it/fenoh-store'
+          sx={{ display: { xs: 'none', md: 'block' } }}
+        >
+          <Box className={classes.heroLinkBox}>
+            <Typography className={classes.heroLinkText}>app.vetrinalive.it/fenoh-store</Typography>
+            <ExternalLink />
+          </Box>
+        </Link>
+      </Box>
+    </>
+  );
+};
+
+export default Header;
+
 const useStyles = makeStyles((theme) => ({
   container: {
     alignItems: 'center',
@@ -38,6 +93,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.white.main,
     zIndex: '99',
   },
+  whatsNewBox: {
+    display: 'flex',
+    alignItems: 'center',
+    position: 'relative',
+  },
   notification: {
     position: 'absolute',
     top: '-0.5rem',
@@ -50,55 +110,15 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '0.8rem',
     textAlign: 'center',
   },
+  heroLink: {
+    color: 'inherit',
+  },
+  heroLinkBox: {
+    display: 'flex',
+    alignItems: 'center',
+    color: theme.palette.white.main,
+  },
+  heroLinkText: {
+    fontSize: '1.3rem',
+  },
 }));
-
-const Header = ({ page }) => {
-  const classes = useStyles();
-  const [menuVisible, setMenuVisible] = useState(false);
-  const [state, setState] = useGlobalState();
-
-  const toggleMenu = (open) => {
-    setState({ ...state, menuCollapsed: false });
-    setMenuVisible(!!open);
-  };
-
-  return (
-    <>
-      <Grid container className={classes.container}>
-        {menuVisible && (
-          <Box sx={{ display: { sm: 'block', md: 'none' } }} className={classes.sidebar}>
-            <Sidebar mobile={true} customAction={toggleMenu} />
-          </Box>
-        )}
-        <Grid item sx={{ display: { xs: 'block', md: 'none' } }}>
-          <Button onClick={() => toggleMenu(true)} color='secondary' sx={{ minWidth: 0 }}>
-            <BurgerMenu color='primary' />
-          </Button>
-        </Grid>
-        <Grid item className={classes.pageName}>
-          {page}
-        </Grid>
-        <Grid item>
-          <Box display='flex' alignItems='center' position='relative'>
-            <Zap />
-            <Typography>Whats new</Typography>
-            <Box className={classes.notification}>2</Box>
-          </Box>
-        </Grid>
-      </Grid>
-      <Box className={classes.hero}>
-        <Typography variant='h4' component='div'>
-          Welcome, Andrius!
-        </Typography>
-        <Link color='inherit' to='app.vetrinalive.it/fenoh-store'>
-          <Box display='flex' alignItems='center' color='#FFF'>
-            <Typography fontSize='1.3rem'>app.vetrinalive.it/fenoh-store</Typography>
-            <ExternalLink />
-          </Box>
-        </Link>
-      </Box>
-    </>
-  );
-};
-
-export default Header;

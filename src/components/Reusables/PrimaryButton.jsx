@@ -17,5 +17,6 @@ const useStyles = makeStyles((theme) => ({
   primaryButton: {
     color: theme.palette.white.main,
     backgroundColor: theme.palette.secondary.main,
+    padding: '0.6rem',
   },
 }));

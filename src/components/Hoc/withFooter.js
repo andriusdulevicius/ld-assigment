@@ -7,6 +7,7 @@ export const withFooter = (Component) => {
   const NewComponent = (props) => {
     const { footerText, footerColor, footerLink } = props;
     const classes = useStyles();
+
     return (
       <>
         <Component {...props} />

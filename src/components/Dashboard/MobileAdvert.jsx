@@ -6,6 +6,7 @@ import BottomLink from '../Reusables/BottomLink';
 import appStore from '../../assets/images/appStore.png';
 import googlePlay from '../../assets/images/googlePlay.png';
 import device from '../../assets/images/Device.png';
+import { white } from '../../styles/colors';
 
 const MobileAdvert = () => {
   const classes = useStyles();
@@ -15,7 +16,7 @@ const MobileAdvert = () => {
       <Box className={classes.main}>
         <Box className={classes.text}>
           <Typography variant='h6'>Sell your products on your exclusive APP published on the stores</Typography>
-          <BottomLink linkColor='#FFF' linkText='Show more' linkTo='#' />
+          <BottomLink linkColor={white} linkText='Show more' linkTo='https://applestore.com' />
         </Box>
         <Box className={classes.image}>
           <Image src={device} alt='deviceImage' />

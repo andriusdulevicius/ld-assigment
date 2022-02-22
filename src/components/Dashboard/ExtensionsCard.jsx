@@ -21,8 +21,8 @@ const ExtensionsCard = () => {
       </Box>
       <Box className={classes.extensionWrapper}>
         <Box className={`${classes.extension} ${classes.success}`}>
-          <Typography className={classes.text}>+50</Typography>
-          <Typography component='span' textAlign='center'>
+          <Typography className={classes.boldText}>+50</Typography>
+          <Typography component='span' className={classes.text}>
             prodotti
           </Typography>
         </Box>
@@ -66,9 +66,13 @@ const useStyles = makeStyles((theme) => ({
   success: {
     backgroundColor: theme.palette.success.main,
   },
-  text: {
+  boldText: {
     fontSize: '1.5rem',
     textAlign: 'center',
     fontWeight: 600,
+  },
+  text: {
+    fontSize: '1.2rem',
+    textAlign: 'center',
   },
 }));

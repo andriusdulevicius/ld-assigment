@@ -38,6 +38,7 @@ const Layout = () => {
             <Route path='/page/extensions' element={<ExtensionsCard />} />
             <Route path='/page/setting' element={<Example />} />
             <Route path='/page/logout' element={<Example />} />
+            <Route path='/page/inviteFriend' element={<Example />} />
           </Routes>
         </Box>
       </Grid>

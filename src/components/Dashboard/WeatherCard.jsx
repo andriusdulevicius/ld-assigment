@@ -24,7 +24,7 @@ const WeatherCard = () => {
   };
 
   return (
-    <Box className={classes.wrapper}>
+    <Box>
       <Box className={classes.inputField}>
         <form onSubmit={setCity} onBlur={setCity}>
           <TextField
@@ -65,17 +65,12 @@ const WeatherCard = () => {
 export default withHeader(WeatherCard);
 
 const useStyles = makeStyles({
-  wrapper: {
-    position: 'relative',
-  },
   inputField: {
-    position: 'absolute',
-    top: '-2.8rem',
-    right: '0.625rem',
+    margin: '0 auto',
     maxWidth: '10rem',
   },
   results: {
-    padding: '2rem 0',
+    padding: '0.5rem 0',
   },
   alignment: {
     textAlign: 'center',

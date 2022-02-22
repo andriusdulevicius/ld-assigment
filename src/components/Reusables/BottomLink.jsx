@@ -7,7 +7,7 @@ const BottomLink = ({ linkColor, linkText, linkTo }) => {
   const classes = useStyles();
 
   return (
-    <Link color={linkColor} to={linkTo}>
+    <Link color={linkColor} href={linkTo} target='_blank'>
       <Box className={classes.wrapper}>
         <Typography>{linkText}</Typography>
         <ArrowRight />

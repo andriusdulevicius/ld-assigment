@@ -7,6 +7,7 @@ export const withHeader = (Component) => {
   const NewComponent = (props) => {
     const { title, Icon, link } = props;
     const classes = useStyles();
+
     return (
       <>
         <Box className={classes.headerWrapper}>
@@ -18,7 +19,7 @@ export const withHeader = (Component) => {
           </Box>
           {link && (
             <Typography variant='subtitle1' component='span'>
-              <Link to={link} className={classes.link}>
+              <Link href={link} className={classes.link}>
                 Visit our blog <ExternalLink />
               </Link>
             </Typography>

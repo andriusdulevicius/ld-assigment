@@ -19,7 +19,10 @@ const TrustPilotAdd = () => {
           <Typography variant='h6' component='span' className={classes.success}>
             {' positive '}
           </Typography>
-          review on trust pilot and receive the extension of 50 additional products
+          review on trust pilot and receive the extension of
+          <Typography variant='h6' component='span' className={classes.bolded}>
+            {' 50 additional products'}
+          </Typography>
         </Typography>
       </Box>
     </>
@@ -44,5 +47,8 @@ const useStyles = makeStyles((theme) => ({
   },
   success: {
     color: theme.palette.success.main,
+  },
+  bolded: {
+    fontWeight: 600,
   },
 }));
