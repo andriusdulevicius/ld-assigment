@@ -6,7 +6,6 @@ import { Box } from '@mui/material';
 export const withFooter = (Component) => {
   const NewComponent = (props) => {
     const { footerLink } = props;
-    console.log('footerLink', { ...footerLink });
     const classes = useStyles();
 
     return (
@@ -23,8 +22,8 @@ export const withFooter = (Component) => {
   return NewComponent;
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   bottomLink: {
     padding: '1rem',
   },
-}));
+});

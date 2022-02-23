@@ -19,7 +19,7 @@ export const withHeader = (Component) => {
           </Box>
           {link && (
             <Typography variant='subtitle1' component='span'>
-              <Link href={link} className={classes.link}>
+              <Link href={link} className={classes.link} color='secondary'>
                 Visit our blog <ExternalLink />
               </Link>
             </Typography>
@@ -52,6 +52,5 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     cursor: 'pointer',
-    color: theme.palette.secondary.main,
   },
 }));

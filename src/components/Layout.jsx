@@ -5,6 +5,7 @@ import { Grid, Box } from '@mui/material';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Dashboard from '../pages/Dashboard';
 import Example from './../pages/Example';
+import { ContactUs } from './../pages/ContactUs';
 
 const Layout = () => {
   const location = useLocation();
@@ -36,6 +37,7 @@ const Layout = () => {
             <Route path='/page/setting' element={<Example />} />
             <Route path='/page/logout' element={<Example />} />
             <Route path='/page/inviteFriend' element={<Example />} />
+            <Route path='/page/contactus' element={<ContactUs />} />
           </Routes>
         </Box>
       </Grid>

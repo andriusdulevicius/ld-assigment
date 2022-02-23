@@ -10,7 +10,7 @@ const InviteFriendCard = () => {
   return (
     <Box className={classes.wrapper}>
       <Typography className={classes.inviteFriend}>
-        <Typography color={success} component='span' className={classes.inviteFriend}>
+        <Typography component='span' className={classes.greenText}>
           Receive 50 products
         </Typography>
         {} by inviting a friend who subscribes to a plan. Your friend will receive a 30% discount coupon valid for any
@@ -22,12 +22,16 @@ const InviteFriendCard = () => {
 
 export default withHeader(withFooter(InviteFriendCard));
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   wrapper: {
     padding: '1rem',
   },
   inviteFriend: {
     variant: 'subtitle1',
-    fontWeight: 600,
+    fontWeight: 500,
+    color: theme.palette.primary.main,
   },
-});
+  greenText: {
+    color: theme.palette.success.main,
+  },
+}));

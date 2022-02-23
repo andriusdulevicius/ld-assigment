@@ -5,7 +5,7 @@ import { Image } from 'mui-image';
 import andriusPhoto from '../../assets/images/img.jpg';
 import simonePhoto from '../../assets/images/simone.jpg';
 import PrimaryButton from '../Reusables/PrimaryButton';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { withHeader } from '../Hoc';
 
 const specialists = [
@@ -14,6 +14,7 @@ const specialists = [
 ];
 
 const CustomerSupportCard = () => {
+  const navigate = useNavigate();
   const classes = useStyles();
 
   return (
@@ -27,7 +28,7 @@ const CustomerSupportCard = () => {
         </Box>
       ))}
       <Box className={classes.btn}>
-        <PrimaryButton onClick={() => Navigate('/page/contacts')}>Contact us</PrimaryButton>
+        <PrimaryButton onClick={() => navigate('/page/contactus')}>Contact us</PrimaryButton>
       </Box>
     </Box>
   );

@@ -68,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
   },
   blue: {
     color: theme.palette.primary.main,
+    fontWeight: 500,
   },
   gray: {
     color: theme.palette.darkGray.main,

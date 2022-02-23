@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
 import { useGlobalState } from '../../context';
-import { Button, Grid, Box } from '@mui/material';
+import { Button, Grid, Box, Link } from '@mui/material';
 import ShopSelection from './ShopSelection.jsx';
 import logo from '../../assets/images/logo.png';
 import { BurgerMenu } from '../../assets/icons/BurgerMenu';
@@ -29,7 +29,11 @@ const Sidebar = ({ mobile, customAction }) => {
       className={classes.wrapper}
     >
       <Box display='flex' justifyContent={menuCollapsed ? 'start' : 'space-between'} className={classes.header}>
-        {!menuCollapsed && <img src={logo} alt='Logo' className={classes.image} />}
+        {!menuCollapsed && (
+          <Link href='#' className={classes.link}>
+            <img src={logo} alt='Logo' className={classes.image} />
+          </Link>
+        )}
         <Button onClick={toggleMenu} color='secondary' className={classes.burgerButton}>
           <BurgerMenu color='primary' />
         </Button>
@@ -53,8 +57,12 @@ const useStyles = makeStyles({
   },
   header: {
     padding: '.5rem .7rem',
+    alignItems: 'center',
   },
   burgerButton: {
     minWidth: 0,
+  },
+  link: {
+    cursor: 'pointer',
   },
 });

@@ -32,11 +32,13 @@ const Header = ({ page }) => {
           {page}
         </Grid>
         <Grid item>
-          <Box className={classes.whatsNewBox}>
-            <Zap />
-            <Typography>Whats new</Typography>
-            <Box className={classes.notification}>2</Box>
-          </Box>
+          <Link href='/'>
+            <Box className={classes.whatsNewBox}>
+              <Zap />
+              <Typography>Whats new</Typography>
+              <Box className={classes.notification}>2</Box>
+            </Box>
+          </Link>
         </Grid>
       </Grid>
       <Box className={classes.hero}>
@@ -45,7 +47,7 @@ const Header = ({ page }) => {
         </Typography>
         <Link
           className={classes.heroLink}
-          to='app.vetrinalive.it/fenoh-store'
+          href='app.vetrinalive.it/fenoh-store'
           sx={{ display: { xs: 'none', md: 'block' } }}
         >
           <Box className={classes.heroLinkBox}>
@@ -74,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.dark,
   },
   hero: {
-    background: `linear-gradient(0deg, ${theme.palette.white.main} 0%, ${theme.palette.secondary.main} 100%)`,
+    background: `linear-gradient(180deg, ${theme.palette.secondary.main} 0%, rgba(33, 184, 249, 0) 132%)`,
     width: '100%',
     height: '10rem',
     display: 'flex',
@@ -83,6 +85,13 @@ const useStyles = makeStyles((theme) => ({
     padding: '2.5rem 1rem 3rem 1rem',
     margin: '0',
     color: theme.palette.white.main,
+    '& .MuiLink-root': {
+      color: theme.palette.white.main,
+      textDecoration: 'none',
+      '& :hover': {
+        color: theme.palette.darkGray.main,
+      },
+    },
   },
   sidebar: {
     position: 'absolute',
@@ -110,15 +119,12 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '0.8rem',
     textAlign: 'center',
   },
-  heroLink: {
-    color: 'inherit',
-  },
   heroLinkBox: {
     display: 'flex',
     alignItems: 'center',
-    color: theme.palette.white.main,
+    color: 'inherit',
   },
   heroLinkText: {
-    fontSize: '1.3rem',
+    fontSize: '1rem',
   },
 }));

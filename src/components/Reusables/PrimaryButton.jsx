@@ -2,10 +2,10 @@ import React from 'react';
 import { Button } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
-const PrimaryButton = ({ children, onClick }) => {
+const PrimaryButton = ({ children, onClick, ...rest }) => {
   const classes = useStyles();
   return (
-    <Button color='secondary' onClick={onClick} variant='contained' size='small' className={classes.primaryButton}>
+    <Button onClick={onClick} variant='contained' size='small' className={classes.primaryButton} {...rest}>
       {children}
     </Button>
   );
@@ -18,5 +18,6 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.white.main,
     backgroundColor: theme.palette.secondary.main,
     padding: '0.6rem',
+    textTransform: 'none',
   },
 }));
