@@ -5,10 +5,11 @@ import fetchData from '../../utils/fetchData';
 import endpoints from '../../utils/apiEndpoints';
 import PrimaryButton from '../Reusables/PrimaryButton';
 import { withHeader } from '../Hoc';
+import { Theme } from '../../styles/theme';
 
-const RandomActivity = () => {
+const RandomActivity: React.FC = () => {
   const classes = useStyles();
-  const [randomActivity, setRandomActivity] = useState('');
+  const [randomActivity, setRandomActivity] = useState<string>('');
   const { getRandomActivity } = endpoints;
 
   const getNewActivity = async () => {
@@ -32,7 +33,7 @@ const RandomActivity = () => {
 
 export default withHeader(RandomActivity);
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   wrapper: {
     display: 'flex',
     flexDirection: 'column',

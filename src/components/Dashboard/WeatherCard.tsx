@@ -7,10 +7,19 @@ import fetchData from '../../utils/fetchData';
 import endpoints from '../../utils/apiEndpoints';
 import { withHeader } from '../Hoc';
 
-const WeatherCard = () => {
+interface DataTypes {
+  main?: {
+    temp: number;
+    feels_like: number;
+  };
+  weather?: [{ icon: string; description: string }];
+  message?: string;
+}
+
+const WeatherCard: React.FC = () => {
   const classes = useStyles();
-  const [weatherData, setWeatherData] = useState({});
-  const [cityName, setCityName] = useState('London');
+  const [weatherData, setWeatherData] = useState<DataTypes>({});
+  const [cityName, setCityName] = useState<string>('London');
   const { main, weather, message } = weatherData;
   const { getWeather } = endpoints;
 

@@ -3,13 +3,19 @@ import { makeStyles } from '@mui/styles';
 import { Card, Link, Grid, Box, CardContent, CardMedia, Typography, CardActionArea } from '@mui/material';
 import fetchData from '../../utils/fetchData';
 import endpoints from '../../utils/apiEndpoints';
-import { withHeader } from './../Hoc/withHeader';
+import { withHeader } from '../Hoc/withHeader';
 
-const LatestNews = () => {
+interface DataTypes {
+  title: string;
+  image: string;
+  url: string;
+}
+
+const LatestNews: React.FC = () => {
   const classes = useStyles();
   const { getNews } = endpoints;
 
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState<DataTypes[] | []>([]);
 
   useEffect(() => {
     (async () => {
@@ -47,7 +53,7 @@ const LatestNews = () => {
 
 export default withHeader(LatestNews);
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   wrapper: {
     marginBottom: '1rem',
     padding: '0.5rem',
@@ -61,4 +67,4 @@ const useStyles = makeStyles((theme) => ({
     width: '100px',
     height: '90px',
   },
-}));
+});

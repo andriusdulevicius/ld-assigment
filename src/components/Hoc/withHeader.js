@@ -46,9 +46,8 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     paddingLeft: '0.2rem',
+    fontSize: '1.3rem',
     fontWeight: 500,
-
-    fontSize: '1.25rem',
   },
   link: {
     cursor: 'pointer',

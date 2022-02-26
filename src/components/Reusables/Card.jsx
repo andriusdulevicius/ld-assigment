@@ -14,7 +14,7 @@ const Card = ({ children, backgroundColor }) => {
 
 export default Card;
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   wrapper: {
     padding: '0.625rem',
     minHeight: '13rem',
@@ -23,4 +23,4 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '0.625rem',
     boxShadow: '0 4px 8px 0 rgba(50, 50, 71, 0.08)',
   },
-}));
+});

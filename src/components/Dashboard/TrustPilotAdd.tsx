@@ -4,8 +4,9 @@ import { Box, Typography } from '@mui/material';
 import { Image } from 'mui-image';
 import trustPilotLogo from '../../assets/images/logo-white-trustpilot.png';
 import { withFooter } from '../Hoc';
+import { Theme } from '../../styles/theme';
 
-const TrustPilotAdd = () => {
+const TrustPilotAdd: React.FC = () => {
   const classes = useStyles();
 
   return (
@@ -31,7 +32,7 @@ const TrustPilotAdd = () => {
 
 export default withFooter(TrustPilotAdd);
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   content: {
     display: 'flex',
     flexDirection: 'column',

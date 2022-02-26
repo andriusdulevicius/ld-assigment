@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
 import { Box, Typography } from '@mui/material';
-import { success } from '../../styles/colors';
 import { withHeader, withFooter } from '../Hoc';
+import { Theme } from '../../styles/theme';
 
 const InviteFriendCard = () => {
   const classes = useStyles();
@@ -22,7 +22,7 @@ const InviteFriendCard = () => {
 
 export default withHeader(withFooter(InviteFriendCard));
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   wrapper: {
     padding: '1rem',
   },

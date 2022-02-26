@@ -13,14 +13,19 @@ const specialists = [
   { name: 'Simone', photo: simonePhoto },
 ];
 
-const CustomerSupportCard = () => {
+const CustomerSupportCard: React.FC = () => {
   const navigate = useNavigate();
   const classes = useStyles();
 
+  interface Props {
+    name: String;
+    photo: String;
+  }
+
   return (
     <Box className={classes.wrapper}>
-      {specialists.map((spec) => (
-        <Box key={spec.name} className={classes.specialist}>
+      {specialists.map((spec: Props, key: number) => (
+        <Box key={key} className={classes.specialist}>
           <Box className={classes.image}>
             <Image src={spec.photo} />
           </Box>

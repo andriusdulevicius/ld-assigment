@@ -7,8 +7,9 @@ import appStore from '../../assets/images/appStore.png';
 import googlePlay from '../../assets/images/googlePlay.png';
 import device from '../../assets/images/Device.png';
 import { white } from '../../styles/colors';
+import { Theme } from '../../styles/theme';
 
-const MobileAdvert = () => {
+const MobileAdvert: React.FC = () => {
   const classes = useStyles();
 
   return (
@@ -36,15 +37,16 @@ const MobileAdvert = () => {
 
 export default MobileAdvert;
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   main: {
     display: 'flex',
     justifyContent: 'space-between',
+    padding: '0.5rem',
     gap: '1rem',
     height: '80%',
   },
   text: {
-    maxWidth: '60%',
+    maxWidth: '50%',
     color: theme.palette.white.main,
   },
   image: {

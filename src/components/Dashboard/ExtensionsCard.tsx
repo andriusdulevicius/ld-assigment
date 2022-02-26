@@ -1,10 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
+import { Theme } from '../../styles/theme';
 import { Box, Typography } from '@mui/material/';
 import LanguageIcon from '@mui/icons-material/Language';
 import { withHeader, withFooter } from '../Hoc';
 
-const ExtensionsCard = () => {
+const ExtensionsCard: React.FC = () => {
   const classes = useStyles();
 
   return (
@@ -38,7 +39,7 @@ const ExtensionsCard = () => {
 
 export default withFooter(withHeader(ExtensionsCard));
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   wrapper: {
     display: 'flex',
     overflow: 'hidden',

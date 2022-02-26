@@ -3,11 +3,12 @@ import { makeStyles } from '@mui/styles';
 import { Box, Typography } from '@mui/material';
 import PeriodSelector from '../Reusables/PeriodSelector';
 import { withHeader, withFooter } from '../Hoc';
+import { Theme } from '../../styles/theme';
 
-const OrdersCard = () => {
+const OrdersCard: React.FC = () => {
   const classes = useStyles();
 
-  const [period, setPeriod] = useState('thisWeek');
+  const [period, setPeriod] = useState<string>('thisWeek');
   const dailyQty = 48;
   const unitPrice = 34;
 
@@ -53,7 +54,7 @@ const OrdersCard = () => {
 
 export default withFooter(withHeader(OrdersCard));
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   wrapper: {
     position: 'relative',
   },
