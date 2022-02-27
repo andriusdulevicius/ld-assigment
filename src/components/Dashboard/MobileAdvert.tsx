@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Box, Typography } from '@mui/material';
 import Image from 'mui-image';
@@ -9,7 +9,7 @@ import device from '../../assets/images/Device.png';
 import { white } from '../../styles/colors';
 import { Theme } from '../../styles/theme';
 
-const MobileAdvert: React.FC = () => {
+const MobileAdvert: FC = () => {
   const classes = useStyles();
 
   return (

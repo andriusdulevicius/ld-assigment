@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Grid } from '@mui/material';
 import Card from '../components/Reusables/Card';
 import { mainCards, sideCards } from '../utils/dashboardCardsData';
 import { white } from '../styles/colors';
 
-const Dashboard = () => {
+const Dashboard: FC = () => {
   const classes = useStyles();
 
   return (

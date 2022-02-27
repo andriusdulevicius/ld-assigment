@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Theme } from '../../styles/theme';
 import { Box, Typography } from '@mui/material/';
 import LanguageIcon from '@mui/icons-material/Language';
 import { withHeader, withFooter } from '../Hoc';
 
-const ExtensionsCard: React.FC = () => {
+const ExtensionsCard: FC = () => {
   const classes = useStyles();
 
   return (

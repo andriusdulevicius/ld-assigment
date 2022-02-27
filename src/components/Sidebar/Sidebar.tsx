@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { makeStyles } from '@mui/styles';
 import { useGlobalState } from '../../context';
 import { Button, Grid, Box, Link } from '@mui/material';
-import ShopSelection from './ShopSelection.jsx';
+import ShopSelection from './ShopSelection';
 import logo from '../../assets/images/logo.png';
 import { BurgerMenu } from '../../assets/icons/BurgerMenu';
 import Menu from './Menu';
 
-const Sidebar = ({ mobile, customAction }) => {
+interface Props {
+  mobile: string;
+  customAction: () => void;
+}
+
+const Sidebar: FC<Props> = ({ mobile, customAction }) => {
   const classes = useStyles();
   const [state, setState] = useGlobalState();
   const { menuCollapsed } = state;

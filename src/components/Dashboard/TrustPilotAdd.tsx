@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Box, Typography } from '@mui/material';
 import { Image } from 'mui-image';
@@ -6,7 +6,7 @@ import trustPilotLogo from '../../assets/images/logo-white-trustpilot.png';
 import { withFooter } from '../Hoc';
 import { Theme } from '../../styles/theme';
 
-const TrustPilotAdd: React.FC = () => {
+const TrustPilotAdd: FC = () => {
   const classes = useStyles();
 
   return (

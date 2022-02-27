@@ -1,13 +1,12 @@
-import { useState } from 'react';
+import { useState, FC } from 'react';
 import { makeStyles } from '@mui/styles';
-import { Box, MenuItem, FormControl, Select, Typography } from '@mui/material';
+import { Box, MenuItem, FormControl, Select, Typography, SelectChangeEvent } from '@mui/material';
 
-const ShopSelection = () => {
+const ShopSelection: FC = () => {
   const classes = useStyles();
-
   const [shop, setShop] = useState('');
 
-  const handleChange = (event) => {
+  const handleChange = (event: SelectChangeEvent) => {
     setShop(event.target.value);
   };
 

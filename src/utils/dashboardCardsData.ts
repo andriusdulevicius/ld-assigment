@@ -1,19 +1,41 @@
-import LatestNews from '../components/Dashboard/LatestNews.tsx';
-import WeatherCard from '../components/Dashboard/WeatherCard.tsx';
-import RandomActivity from '../components/Dashboard/RandomActivity.tsx';
-import MobileAdvert from '../components/Dashboard/MobileAdvert.tsx';
-import TrustPilotAdd from '../components/Dashboard/TrustPilotAdd.tsx';
-import InviteFriendCard from '../components/Dashboard/InviteFriendCard.tsx';
-import CustomerSupportCard from '../components/Dashboard/CustomerSupportCard.tsx';
-import OrdersCard from '../components/Dashboard/OrdersCard.tsx';
-import ExtensionsCard from '../components/Dashboard/ExtensionsCard.tsx';
+import { FC, ReactElement } from 'react';
+import LatestNews from '../components/Dashboard/LatestNews';
+import WeatherCard from '../components/Dashboard/WeatherCard';
+import RandomActivity from '../components/Dashboard/RandomActivity';
+import MobileAdvert from '../components/Dashboard/MobileAdvert';
+import TrustPilotAdd from '../components/Dashboard/TrustPilotAdd';
+import InviteFriendCard from '../components/Dashboard/InviteFriendCard';
+import CustomerSupportCard from '../components/Dashboard/CustomerSupportCard';
+import OrdersCard from '../components/Dashboard/OrdersCard';
+import ExtensionsCard from '../components/Dashboard/ExtensionsCard';
 import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 import { Orders, Extensions, Customers, Headphones } from '../assets/icons';
 import { success, trustPilotBlue, orange } from '../styles/colors';
 
-export const mainCards = [
+interface GridSizes {
+  sm?: number;
+  md?: number;
+  lg?: number;
+}
+
+interface DashboardCards {
+  Component: FC<DashboardCards> | ReactElement<DashboardCards>;
+  title?: string;
+  Icon?: FC;
+  grid?: GridSizes;
+  backgroundColor?: string;
+  link?: string;
+  footerLink?: {
+    text: string;
+    href: string;
+    color?: string;
+    target?: string;
+  };
+}
+
+export const mainCards: DashboardCards[] = [
   {
     Component: RandomActivity,
     title: 'Challenge of the day',

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Box, Typography } from '@mui/material';
 import PeriodSelector from '../Reusables/PeriodSelector';
 import { withHeader, withFooter } from '../Hoc';
 import { Theme } from '../../styles/theme';
 
-const OrdersCard: React.FC = () => {
+const OrdersCard: FC = () => {
   const classes = useStyles();
 
   const [period, setPeriod] = useState<string>('thisWeek');

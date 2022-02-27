@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Sidebar from './Sidebar/Sidebar';
 import Header from './Header';
 import { Grid, Box } from '@mui/material';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Dashboard from '../pages/Dashboard';
-import Example from './../pages/Example';
-import { ContactUs } from './../pages/ContactUs';
+import Example from '../pages/Example';
+import { ContactUs } from '../pages/ContactUs';
 
-const Layout = () => {
+const Layout: FC = () => {
   const location = useLocation();
   const path = location.pathname?.split('/');
   const pathName = path[path.length - 1];

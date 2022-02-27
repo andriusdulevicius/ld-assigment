@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import List from '@mui/material/List';
 import MenuItem from '../Reusables/MenuItem';
 
@@ -46,7 +46,7 @@ const menuItems = [
   { label: 'Logout', Icon: Logout, link: '/page/logout' },
 ];
 
-const Menu = () => {
+const Menu = (): FC => {
   return (
     <List component='nav' disablePadding>
       {menuItems.map((item, index) => (

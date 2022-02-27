@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FC } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Typography, Box } from '@mui/material';
 import fetchData from '../../utils/fetchData';
@@ -7,7 +7,7 @@ import PrimaryButton from '../Reusables/PrimaryButton';
 import { withHeader } from '../Hoc';
 import { Theme } from '../../styles/theme';
 
-const RandomActivity: React.FC = () => {
+const RandomActivity: FC = () => {
   const classes = useStyles();
   const [randomActivity, setRandomActivity] = useState<string>('');
   const { getRandomActivity } = endpoints;

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Box, Typography } from '@mui/material';
 import { withHeader, withFooter } from '../Hoc';
 import { Theme } from '../../styles/theme';
 
-const InviteFriendCard = () => {
+const InviteFriendCard: FC = () => {
   const classes = useStyles();
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FC } from 'react';
 import { makeStyles } from '@mui/styles';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
@@ -7,7 +7,7 @@ import fetchData from '../../utils/fetchData';
 import endpoints from '../../utils/apiEndpoints';
 import { withHeader } from '../Hoc';
 
-interface DataTypes {
+interface WeatherData {
   main?: {
     temp: number;
     feels_like: number;
@@ -16,9 +16,9 @@ interface DataTypes {
   message?: string;
 }
 
-const WeatherCard: React.FC = () => {
+const WeatherCard: FC = () => {
   const classes = useStyles();
-  const [weatherData, setWeatherData] = useState<DataTypes>({});
+  const [weatherData, setWeatherData] = useState<WeatherData>({});
   const [cityName, setCityName] = useState<string>('London');
   const { main, weather, message } = weatherData;
   const { getWeather } = endpoints;
@@ -27,7 +27,7 @@ const WeatherCard: React.FC = () => {
     fetchData(getWeather(cityName)).then((data) => setWeatherData(data || {}));
   }, [cityName]);
 
-  const setCity = (e) => {
+  const setCity = (e: any) => {
     e.preventDefault();
     setCityName(e.target.cityName?.value || e.target.value);
   };
@@ -56,7 +56,7 @@ const WeatherCard: React.FC = () => {
 
             <Typography>Feels like: {Math.round(main.feels_like)}C</Typography>
             <img src={`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`} alt='weather icon' />
-            <Typography>{weather[0].description}</Typography>
+            <Typography>{weather?.[0].description}</Typography>
           </Box>
         ) : (
           <Typography className={classes.alignment}>Please enter a valid city name to see the forecast</Typography>

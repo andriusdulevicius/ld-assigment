@@ -1,4 +1,8 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, FC } from 'react';
+
+interface Props {
+  children?: FC;
+}
 
 const initialState = {
   menuCollapsed: false,
@@ -6,7 +10,7 @@ const initialState = {
 
 export const GlobalContext = createContext({});
 
-const GlobalProvider = ({ children }) => {
+const GlobalProvider: FC<Props> = ({ children }) => {
   const [state, setState] = useState(initialState);
 
   return <GlobalContext.Provider value={[state, setState]}>{children}</GlobalContext.Provider>;

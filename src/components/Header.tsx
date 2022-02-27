@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { Button, Grid, Box, Typography, Link } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { useGlobalState } from '../context';
 import { BurgerMenu, ExternalLink, Zap } from '../assets/icons';
 import Sidebar from './Sidebar/Sidebar';
+import { Theme } from '../../styles/theme';
 
-const Header = ({ page }) => {
+interface Props {
+  page: FC;
+}
+
+const Header: FC<Props> = ({ page }) => {
   const classes = useStyles();
   const [menuVisible, setMenuVisible] = useState(false);
   const [state, setState] = useGlobalState();
 
-  const toggleMenu = (open) => {
+  const toggleMenu = (open: boolean) => {
     setState({ ...state, menuCollapsed: false });
     setMenuVisible(!!open);
   };
@@ -45,11 +50,7 @@ const Header = ({ page }) => {
         <Typography variant='h4' component='div'>
           Welcome, Andrius!
         </Typography>
-        <Link
-          className={classes.heroLink}
-          href='app.vetrinalive.it/fenoh-store'
-          sx={{ display: { xs: 'none', md: 'block' } }}
-        >
+        <Link href='app.vetrinalive.it/fenoh-store' sx={{ display: { xs: 'none', md: 'block' } }}>
           <Box className={classes.heroLinkBox}>
             <Typography className={classes.heroLinkText}>app.vetrinalive.it/fenoh-store</Typography>
             <ExternalLink />
@@ -62,7 +63,7 @@ const Header = ({ page }) => {
 
 export default Header;
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   container: {
     alignItems: 'center',
     justifyContent: 'space-between',

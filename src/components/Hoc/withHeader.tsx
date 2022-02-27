@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { FC, ReactNode, ReactElement } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Box, Link, Typography } from '@mui/material';
 import { ExternalLink } from '../../assets/icons/ExternalLink';
+import { Theme } from '../../styles/theme';
 
-export const withHeader = (Component) => {
-  const NewComponent = (props) => {
+interface ComponentProps {
+  title: string;
+  Icon: FC;
+  link: string;
+  key?: number | string;
+  children?: ReactNode;
+}
+
+export const withHeader = (Component: FC): JSX.Element => {
+  const NewComponent = (props: ComponentProps): JSX.Element => {
     const { title, Icon, link } = props;
     const classes = useStyles();
 
@@ -32,7 +41,7 @@ export const withHeader = (Component) => {
   return NewComponent;
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   headerWrapper: {
     display: 'flex',
     padding: '.5rem',

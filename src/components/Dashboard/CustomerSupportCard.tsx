@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Box, Typography } from '@mui/material';
 import { Image } from 'mui-image';
@@ -8,23 +8,23 @@ import PrimaryButton from '../Reusables/PrimaryButton';
 import { useNavigate } from 'react-router-dom';
 import { withHeader } from '../Hoc';
 
+interface Specialist {
+  name: string;
+  photo: string;
+}
+
 const specialists = [
   { name: 'Andrius', photo: andriusPhoto },
   { name: 'Simone', photo: simonePhoto },
 ];
 
-const CustomerSupportCard: React.FC = () => {
+const CustomerSupportCard: FC = () => {
   const navigate = useNavigate();
   const classes = useStyles();
 
-  interface Props {
-    name: String;
-    photo: String;
-  }
-
   return (
     <Box className={classes.wrapper}>
-      {specialists.map((spec: Props, key: number) => (
+      {specialists.map((spec: Specialist, key: number) => (
         <Box key={key} className={classes.specialist}>
           <Box className={classes.image}>
             <Image src={spec.photo} />

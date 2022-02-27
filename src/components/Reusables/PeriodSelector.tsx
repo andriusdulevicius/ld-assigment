@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Box, Select, MenuItem, FormControl } from '@mui/material';
 
-const PeriodSelector = ({ period, setPeriod }) => {
+interface Props {
+  period: string;
+  setPeriod: (arg1: string) => string;
+}
+
+const PeriodSelector: FC<Props> = ({ period, setPeriod }) => {
   const classes = useStyles();
 
   return (

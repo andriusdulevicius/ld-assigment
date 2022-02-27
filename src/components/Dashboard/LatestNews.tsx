@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FC } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Card, Link, Grid, Box, CardContent, CardMedia, Typography, CardActionArea } from '@mui/material';
 import fetchData from '../../utils/fetchData';
@@ -11,7 +11,7 @@ interface DataTypes {
   url: string;
 }
 
-const LatestNews: React.FC = () => {
+const LatestNews: FC = () => {
   const classes = useStyles();
   const { getNews } = endpoints;
 

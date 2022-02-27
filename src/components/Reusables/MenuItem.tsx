@@ -1,4 +1,4 @@
-import React, { useState, useEffect, forwardRef } from 'react';
+import React, { useState, useEffect, forwardRef, FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useGlobalState } from '../../context';
 import { makeStyles } from '@mui/styles';
@@ -6,7 +6,15 @@ import { List, ListItem, ListItemIcon, ListItemText, Divider, Collapse } from '@
 import IconExpandLess from '@mui/icons-material/ExpandLess';
 import IconExpandMore from '@mui/icons-material/ExpandMore';
 
-const MenuItem = ({ label, link, Icon, children = [] }) => {
+interface Props {
+  label: string;
+  link: string;
+  Icon: FC;
+  key?: number | string;
+  children?: FC[];
+}
+
+const MenuItem: FC<Props> = ({ label, link, Icon, children = [] }) => {
   const classes = useStyles();
   const [state, setState] = useGlobalState();
   const { menuCollapsed } = state;

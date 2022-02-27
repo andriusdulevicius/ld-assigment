@@ -2,9 +2,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import GlobalProvider from './context';
 import Layout from './components/Layout';
-import theme from './styles/theme.ts';
+import theme from './styles/theme';
 
-function App() {
+const App = () => {
   return (
     <div className='App'>
       <Router>
@@ -16,6 +16,6 @@ function App() {
       </Router>
     </div>
   );
-}
+};
 
 export default App;

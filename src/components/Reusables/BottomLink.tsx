@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { makeStyles } from '@mui/styles';
 import { ArrowRight } from '../../assets/icons/ArrowRight';
 import { Typography, Link, Box } from '@mui/material';
 
-const BottomLink = ({ text, ...rest }) => {
+interface Props {
+  text: string;
+  color: string;
+  link: string;
+}
+
+const BottomLink: FC<Props> = ({ text, ...rest }) => {
   const classes = useStyles();
 
   return (

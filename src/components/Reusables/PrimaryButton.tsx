@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Button } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import { Theme } from '../../styles/theme';
 
-const PrimaryButton = ({ children, onClick, ...rest }) => {
+interface Props {
+  onClick: () => void;
+  children?: string | FC;
+}
+
+const PrimaryButton: FC<Props> = ({ children, onClick, ...rest }) => {
   const classes = useStyles();
   return (
     <Button onClick={onClick} variant='contained' size='small' className={classes.primaryButton} {...rest}>
@@ -13,7 +19,7 @@ const PrimaryButton = ({ children, onClick, ...rest }) => {
 
 export default PrimaryButton;
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   primaryButton: {
     color: theme.palette.white.main,
     backgroundColor: theme.palette.secondary.main,

@@ -8,17 +8,15 @@ const Example = () => {
 
   return (
     <div>
-      <Box className={classes.wrapper}>Example page of our blogPosts</Box>
+      <Box className={classes.wrapper}>Example page</Box>
       <Grid container spacing={2}>
-        <Grid item xs={4}>
-          <Card title='Post 1' />
-        </Grid>
-        <Grid item xs={4}>
-          <Card title='Post 2' />
-        </Grid>
-        <Grid item xs={4}>
-          <Card title='Post 3' />
-        </Grid>
+        {[...Array(3)].map(() => (
+          <Grid item xs={4}>
+            <Card>
+              <span>Example</span>
+            </Card>
+          </Grid>
+        ))}
       </Grid>
     </div>
   );
