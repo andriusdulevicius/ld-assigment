@@ -1,10 +1,20 @@
-import React from 'react';
+import { FC, ReactNode } from 'react';
 import { makeStyles } from '@mui/styles';
 import BottomLink from '../Reusables/BottomLink';
 import { Box } from '@mui/material';
+interface ComponentProps {
+  footerLink?: {
+    text?: string;
+    href?: string;
+    color?: string;
+    target?: string;
+  };
+  key?: number | string;
+  children?: ReactNode;
+}
 
-export const withFooter = (Component) => {
-  const NewComponent = (props) => {
+export const withFooter = (Component: FC): FC<ComponentProps> => {
+  const NewComponent = (props: ComponentProps): JSX.Element => {
     const { footerLink } = props;
     const classes = useStyles();
 

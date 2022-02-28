@@ -1,12 +1,12 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { makeStyles } from '@mui/styles';
 import { ArrowRight } from '../../assets/icons/ArrowRight';
 import { Typography, Link, Box } from '@mui/material';
 
 interface Props {
-  text: string;
-  color: string;
-  link: string;
+  text?: string;
+  href?: string;
+  color?: string;
 }
 
 const BottomLink: FC<Props> = ({ text, ...rest }) => {

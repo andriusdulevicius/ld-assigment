@@ -12,14 +12,14 @@ const OrdersCard: FC = () => {
   const dailyQty = 48;
   const unitPrice = 34;
 
-  const getQuantity = (period) => {
+  const getQuantity = (period: string) => {
     if (period === 'thisWeek') {
       return 7 * dailyQty;
     } else if (period === 'thisMonth') {
       return 30 * dailyQty;
     } else return 356 * dailyQty;
   };
-  const getEarnings = (period) => {
+  const getEarnings = (period: string) => {
     if (period === 'thisWeek') {
       return 7 * dailyQty * unitPrice;
     } else if (period === 'thisMonth') {

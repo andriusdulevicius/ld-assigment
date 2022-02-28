@@ -7,6 +7,86 @@ import Dashboard from '../pages/Dashboard';
 import Example from '../pages/Example';
 import { ContactUs } from '../pages/ContactUs';
 
+interface DashboardCardRoute {
+  path: string;
+  Component: FC;
+}
+
+const dashboardCardsRoutes: DashboardCardRoute[] = [
+  {
+    path: '/',
+    Component: Dashboard,
+  },
+  {
+    path: '/page/blog',
+    Component: Example,
+  },
+  {
+    path: '/page/catalog',
+    Component: Example,
+  },
+  {
+    path: '/page/orders',
+    Component: Example,
+  },
+  {
+    path: '/page/costumer',
+    Component: Example,
+  },
+  {
+    path: '/page/discount',
+    Component: Example,
+  },
+  {
+    path: '/page/exit',
+    Component: Example,
+  },
+  {
+    path: '/page/discount2',
+    Component: Example,
+  },
+  {
+    path: '/page/exit2',
+    Component: Example,
+  },
+  {
+    path: '/page/delivery',
+    Component: Example,
+  },
+  {
+    path: '/page/payment',
+    Component: Example,
+  },
+  {
+    path: '/page/design',
+    Component: Example,
+  },
+  {
+    path: '/page/subscription',
+    Component: Example,
+  },
+  {
+    path: '/page/extensions',
+    Component: Example,
+  },
+  {
+    path: '/page/setting',
+    Component: Example,
+  },
+  {
+    path: '/page/logout',
+    Component: Example,
+  },
+  {
+    path: '/page/inviteFriend',
+    Component: Example,
+  },
+  {
+    path: '/page/contactus',
+    Component: ContactUs,
+  },
+];
+
 const Layout: FC = () => {
   const location = useLocation();
   const path = location.pathname?.split('/');
@@ -20,24 +100,9 @@ const Layout: FC = () => {
         <Header page={pageName} />
         <Box px='2rem' py='1rem'>
           <Routes>
-            <Route path='/' element={<Dashboard />} />
-            <Route path='/page/blog' element={<Example />} />
-            <Route path='/page/catalog' element={<Example />} />
-            <Route path='/page/orders' element={<Example />} />
-            <Route path='/page/customer' element={<Example />} />
-            <Route path='/page/discount' element={<Example />} />
-            <Route path='/page/exit' element={<Example />} />
-            <Route path='/page/discount2' element={<Example />} />
-            <Route path='/page/exit2' element={<Example />} />
-            <Route path='/page/delivery' element={<Example />} />
-            <Route path='/page/payment' element={<Example />} />
-            <Route path='/page/design' element={<Example />} />
-            <Route path='/page/subscription' element={<Example />} />
-            <Route path='/page/extensions' element={<Example />} />
-            <Route path='/page/setting' element={<Example />} />
-            <Route path='/page/logout' element={<Example />} />
-            <Route path='/page/inviteFriend' element={<Example />} />
-            <Route path='/page/contactus' element={<ContactUs />} />
+            {dashboardCardsRoutes.map(({ path, Component }) => (
+              <Route key={path} path={path} element={<Component />} />
+            ))}
           </Routes>
         </Box>
       </Grid>

@@ -20,22 +20,24 @@ interface GridSizes {
   lg?: number;
 }
 
-interface DashboardCards {
-  Component: FC<DashboardCards> | ReactElement<DashboardCards>;
+interface CardsProps {
   title?: string;
   Icon?: FC;
-  grid?: GridSizes;
-  backgroundColor?: string;
   link?: string;
   footerLink?: {
-    text: string;
-    href: string;
+    text?: string;
+    href?: string;
     color?: string;
     target?: string;
   };
+  grid?: GridSizes;
+}
+export interface DashboardCard extends CardsProps {
+  Component: FC<CardsProps>;
+  backgroundColor?: string;
 }
 
-export const mainCards: DashboardCards[] = [
+export const mainCards: DashboardCard[] = [
   {
     Component: RandomActivity,
     title: 'Challenge of the day',
@@ -78,7 +80,7 @@ export const mainCards: DashboardCards[] = [
   },
 ];
 
-export const sideCards = [
+export const sideCards: DashboardCard[] = [
   {
     Component: WeatherCard,
     title: 'Weather today',

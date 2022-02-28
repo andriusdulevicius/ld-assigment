@@ -10,8 +10,8 @@ const Example = () => {
     <div>
       <Box className={classes.wrapper}>Example page</Box>
       <Grid container spacing={2}>
-        {[...Array(3)].map(() => (
-          <Grid item xs={4}>
+        {[...Array(3)].map((item, index) => (
+          <Grid item xs={4} key={index}>
             <Card>
               <span>Example</span>
             </Card>

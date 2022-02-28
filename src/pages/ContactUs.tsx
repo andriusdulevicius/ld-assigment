@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { TextField, Typography, Paper, TextareaAutosize } from '@mui/material';
 import PrimaryButton from '../components/Reusables/PrimaryButton';
 import { makeStyles } from '@mui/styles';
+import { Theme } from '../styles/theme';
 
 export const ContactUs = () => {
   const navigate = useNavigate();
@@ -28,12 +29,7 @@ export const ContactUs = () => {
 
       <TextField onChange={(e) => setName(e.target.value)} value={name} label={'Name:'} className={classes.input} />
       <TextField onChange={(e) => setEmail(e.target.value)} value={email} label={'Email:'} className={classes.input} />
-      <TextareaAutosize
-        onChange={(e) => setMessage(e.target.value)}
-        value={message}
-        label={'Message:'}
-        className={classes.message}
-      />
+      <TextareaAutosize onChange={(e) => setMessage(e.target.value)} value={message} className={classes.message} />
 
       <PrimaryButton onClick={handleSubmit} className={classes.btn}>
         Submit
@@ -45,7 +41,7 @@ export const ContactUs = () => {
   );
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   form: {
     display: 'flex',
     flexDirection: 'column',

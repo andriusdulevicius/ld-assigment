@@ -4,7 +4,7 @@ import { Box, Select, MenuItem, FormControl } from '@mui/material';
 
 interface Props {
   period: string;
-  setPeriod: (arg1: string) => string;
+  setPeriod: (value: string) => void;
 }
 
 const PeriodSelector: FC<Props> = ({ period, setPeriod }) => {

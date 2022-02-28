@@ -6,6 +6,7 @@ import { Theme } from '../../styles/theme';
 interface Props {
   onClick: () => void;
   children?: string | FC;
+  className?: string;
 }
 
 const PrimaryButton: FC<Props> = ({ children, onClick, ...rest }) => {

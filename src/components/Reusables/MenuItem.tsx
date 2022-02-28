@@ -1,33 +1,29 @@
-import React, { useState, useEffect, forwardRef, FC } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect, FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from '../../context';
 import { makeStyles } from '@mui/styles';
 import { List, ListItem, ListItemIcon, ListItemText, Divider, Collapse } from '@mui/material';
 import IconExpandLess from '@mui/icons-material/ExpandLess';
 import IconExpandMore from '@mui/icons-material/ExpandMore';
+import { Theme } from './../../styles/theme';
+import { MenuItemType } from '../Sidebar/Menu';
 
-interface Props {
-  label: string;
-  link: string;
-  Icon: FC;
-  key?: number | string;
-  children?: FC[];
-}
-
-const MenuItem: FC<Props> = ({ label, link, Icon, children = [] }) => {
+const MenuItem: FC<MenuItemType> = ({ label, link, Icon, children = [] }) => {
   const classes = useStyles();
   const [state, setState] = useGlobalState();
   const { menuCollapsed } = state;
-  const isExpandable = children && children.length > 0;
-  const [expanded, setExpanded] = useState(false);
+  const isExpandable: boolean = children && children.length > 0;
+  const [expanded, setExpanded] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     menuCollapsed && setExpanded(false);
   }, [menuCollapsed]);
 
-  const handleClick = () => {
+  const handleClick = (link?: string) => {
     isExpandable && setState({ ...state, menuCollapsed: false });
     setExpanded(!expanded);
+    link && navigate(link);
   };
 
   const MenuItemBase = (
@@ -49,7 +45,7 @@ const MenuItem: FC<Props> = ({ label, link, Icon, children = [] }) => {
     <Collapse in={expanded} timeout='auto' unmountOnExit>
       <Divider />
       <List component='div' disablePadding className={classes.collapsibleMenu}>
-        {children.map((item, index) => (
+        {children.map((item: MenuItemType, index: number) => (
           <MenuItem key={index} {...item} />
         ))}
       </List>
@@ -58,18 +54,7 @@ const MenuItem: FC<Props> = ({ label, link, Icon, children = [] }) => {
 
   return (
     <>
-      <ListItem
-        button
-        className={classes.menuItem}
-        children={MenuItemBase}
-        onClick={handleClick}
-        {...(link
-          ? {
-              component: forwardRef((props, ref) => <NavLink {...props} />),
-              to: link,
-            }
-          : {})}
-      />
+      <ListItem button className={classes.menuItem} children={MenuItemBase} onClick={() => handleClick(link)} />
 
       {MenuItemChildren}
     </>
@@ -78,7 +63,7 @@ const MenuItem: FC<Props> = ({ label, link, Icon, children = [] }) => {
 
 export default MenuItem;
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   menuItem: {
     padding: '.75rem 1.2rem',
     '& .MuiListItemIcon-root': {

@@ -17,7 +17,7 @@ const MobileAdvert: FC = () => {
       <Box className={classes.main}>
         <Box className={classes.text}>
           <Typography variant='h6'>Sell your products on your exclusive APP published on the stores</Typography>
-          <BottomLink color={white} text='Show more' link='https://applestore.com' />
+          <BottomLink color={white} text='Show more' href='https://applestore.com' />
         </Box>
         <Box className={classes.image}>
           <Image src={device} alt='deviceImage' />

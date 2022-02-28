@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Grid } from '@mui/material';
 import Card from '../components/Reusables/Card';

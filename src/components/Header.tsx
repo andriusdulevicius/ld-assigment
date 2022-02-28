@@ -4,10 +4,10 @@ import { makeStyles } from '@mui/styles';
 import { useGlobalState } from '../context';
 import { BurgerMenu, ExternalLink, Zap } from '../assets/icons';
 import Sidebar from './Sidebar/Sidebar';
-import { Theme } from '../../styles/theme';
+import { Theme } from '../styles/theme';
 
 interface Props {
-  page: FC;
+  page: string;
 }
 
 const Header: FC<Props> = ({ page }) => {
@@ -25,7 +25,7 @@ const Header: FC<Props> = ({ page }) => {
       <Grid container className={classes.container}>
         {menuVisible && (
           <Box sx={{ display: { sm: 'block', md: 'none' } }} className={classes.sidebar}>
-            <Sidebar mobile={true} customAction={toggleMenu} />
+            <Sidebar mobile={true} customAction={() => toggleMenu(false)} />
           </Box>
         )}
         <Grid item sx={{ display: { xs: 'block', md: 'none' } }}>
@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   pageName: {
     textTransform: 'capitalize',
     fontWeight: 600,
-    color: theme.palette.primary.dark,
+    color: theme.palette.primary.main,
   },
   hero: {
     background: `linear-gradient(180deg, ${theme.palette.secondary.main} 0%, rgba(33, 184, 249, 0) 132%)`,

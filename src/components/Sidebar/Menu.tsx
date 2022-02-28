@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import List from '@mui/material/List';
 import MenuItem from '../Reusables/MenuItem';
-
 import {
   Home,
   Orders,
@@ -17,7 +16,14 @@ import {
   Logout,
 } from '../../assets/icons';
 
-const menuItems = [
+export interface MenuItemType {
+  label: string;
+  link?: string;
+  Icon?: FC;
+  children?: MenuItemType[];
+}
+
+const menuItems: MenuItemType[] = [
   { label: 'Dashboard', Icon: Home, link: '/' },
   { label: 'Catalog', Icon: ShoppingCart, link: '/page/catalog' },
   { label: 'Orders', Icon: Orders, link: '/page/orders' },
@@ -46,10 +52,10 @@ const menuItems = [
   { label: 'Logout', Icon: Logout, link: '/page/logout' },
 ];
 
-const Menu = (): FC => {
+const Menu: FC = () => {
   return (
     <List component='nav' disablePadding>
-      {menuItems.map((item, index) => (
+      {menuItems.map((item: MenuItemType, index: number) => (
         <MenuItem key={index} {...item} />
       ))}
     </List>

@@ -8,13 +8,15 @@ import { BurgerMenu } from '../../assets/icons/BurgerMenu';
 import Menu from './Menu';
 
 interface Props {
-  mobile: string;
-  customAction: () => void;
+  mobile?: boolean;
+  customAction?: () => void;
 }
 
 const Sidebar: FC<Props> = ({ mobile, customAction }) => {
   const classes = useStyles();
-  const [state, setState] = useGlobalState();
+  const globalState = useGlobalState();
+  console.log(globalState);
+  const [state, setState] = globalState;
   const { menuCollapsed } = state;
 
   const toggleMenu = () => {
