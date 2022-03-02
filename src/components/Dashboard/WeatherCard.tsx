@@ -55,7 +55,7 @@ const WeatherCard: FC = () => {
             <Typography>Current temp: {Math.round(main.temp)}C</Typography>
 
             <Typography>Feels like: {Math.round(main.feels_like)}C</Typography>
-            <img src={`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`} alt='weather icon' />
+            <img src={`http://openweathermap.org/img/wn/${weather?.[0].icon}@2x.png`} alt='weather icon' />
             <Typography>{weather?.[0].description}</Typography>
           </Box>
         ) : (

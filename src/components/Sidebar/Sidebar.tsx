@@ -15,7 +15,6 @@ interface Props {
 const Sidebar: FC<Props> = ({ mobile, customAction }) => {
   const classes = useStyles();
   const globalState = useGlobalState();
-  console.log(globalState);
   const [state, setState] = globalState;
   const { menuCollapsed } = state;
 
