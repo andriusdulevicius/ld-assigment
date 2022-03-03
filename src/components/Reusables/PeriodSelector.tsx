@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Box, Select, MenuItem, FormControl } from '@mui/material';
 

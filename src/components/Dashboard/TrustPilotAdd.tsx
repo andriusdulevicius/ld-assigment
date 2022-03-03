@@ -13,7 +13,7 @@ const TrustPilotAdd: FC = () => {
     <>
       <Box className={classes.content}>
         <Box className={classes.image}>
-          <Image src={trustPilotLogo} />
+          <Image src={trustPilotLogo} alt='trustPilotLogo' />
         </Box>
         <Typography variant='h6' className={classes.text}>
           Show us your love by leaving a
