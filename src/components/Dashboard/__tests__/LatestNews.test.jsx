@@ -1,5 +1,9 @@
+import { render, waitFor } from '@testing-library/react';
+import LatestNews from '../LatestNews';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from '../../../styles/theme';
+
 const newsMock = {
-  totalArticles: 278007,
   articles: [
     {
       title: 'Title1',
@@ -41,4 +45,44 @@ const newsMock = {
   ],
 };
 
-export default newsMock;
+jest.mock('../../../utils/fetchData', () => {
+  return {
+    __esModule: true,
+    default: async () => Promise.resolve(newsMock),
+  };
+});
+
+describe('Latest News', () => {
+  beforeEach(() => {
+    jest.resetAllMocks();
+  });
+
+  it('should render correctly', async () => {
+    const { container } = render(
+      <ThemeProvider theme={theme}>
+        <LatestNews />
+      </ThemeProvider>
+    );
+
+    const renderedItems = await waitFor(() => container.getElementsByClassName('makeStyles-news-6'));
+    expect(renderedItems.length).toBe(3);
+  });
+
+  it('should render correctly 2', async () => {
+    jest.mock('../../../utils/fetchData', () => {
+      return {
+        __esModule: true,
+        default: async () => Promise.resolve({}),
+      };
+    });
+
+    const { container } = render(
+      <ThemeProvider theme={theme}>
+        <LatestNews />
+      </ThemeProvider>
+    );
+
+    const renderedItems = await waitFor(() => container.getElementsByClassName('makeStyles-news-6'));
+    expect(renderedItems.length).toBe(0);
+  });
+});

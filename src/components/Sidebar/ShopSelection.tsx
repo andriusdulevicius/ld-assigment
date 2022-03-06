@@ -14,7 +14,7 @@ const ShopSelection: FC = () => {
     <Box className={classes.wrapper}>
       <Typography className={classes.title}>Select your shop:</Typography>
       <FormControl fullWidth>
-        <Select id='shop-select' value={shop} label='Shop' onChange={handleChange}>
+        <Select id='shop-select' value={shop} onChange={handleChange}>
           <MenuItem value='FenohStore'>Fenoh store</MenuItem>
           <MenuItem value='AmazonStore'>Amazon store</MenuItem>
           <MenuItem value='EbayStore'>Ebay store</MenuItem>
