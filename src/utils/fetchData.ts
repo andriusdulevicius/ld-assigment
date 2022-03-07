@@ -14,13 +14,7 @@ const fetchData = async (url: string, options?: Options, data?: any) => {
     });
     return res.data;
   } catch (err: any) {
-    if (err.response) {
-      throw err.response.data;
-    } else if (err.request) {
-      throw err.request;
-    } else {
-      throw new Error(`Error: ${err.message}`);
-    }
+    return { error: err?.response?.data?.data?.message };
   }
 };
 

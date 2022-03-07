@@ -13,7 +13,7 @@ describe('Header', () => {
 
     expect(screen.getByText(/whats new/i)).toBeTruthy();
     expect(screen.getByText(/welcome/i)).toBeTruthy();
-    expect(screen.getByText(/welcomeapp.vetrina.it/i)).toBeTruthy();
+    expect(screen.getByText(/app.vetrinalive.it/i)).toBeTruthy();
     expect(screen.getByRole('button')).toBeTruthy();
   });
 });
