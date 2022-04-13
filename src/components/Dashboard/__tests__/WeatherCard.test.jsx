@@ -43,7 +43,7 @@ describe('WeatherCard', () => {
       message: 'test',
     });
 
-    await render(
+    render(
       <ThemeProvider theme={theme}>
         <WeatherCard />
       </ThemeProvider>
@@ -51,6 +51,6 @@ describe('WeatherCard', () => {
 
     const inputField = screen.getByLabelText(/enter city name/i);
     userEvent.type(inputField, 'Siauliai');
-    await expect(inputField.value).toContain('Siauliai');
+    expect(inputField.value).toContain('Siauliai');
   });
 });
